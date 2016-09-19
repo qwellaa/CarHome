@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="50dp">
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:drawableLeft="@mipmap/ic_launcher"
+        android:text="音频"
+        android:layout_centerVertical="true"
+        android:id="@+id/btn_audio"/>
+    <ImageButton
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@mipmap/ic_launcher"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:id="@+id/ibtn_more"/>
+    <ImageButton
+        android:layout_marginRight="15dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@drawable/search"
+        android:layout_toLeftOf="@id/ibtn_more"
+        android:layout_centerVertical="true"
+        android:id="@+id/ibtn_search"/>
+</RelativeLayout>
