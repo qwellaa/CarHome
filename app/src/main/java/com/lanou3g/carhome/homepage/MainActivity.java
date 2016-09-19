@@ -43,6 +43,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         rBtnDiscover.setOnClickListener(this);
         rBtnPersonal.setOnClickListener(this);
 
+        rBtnRecommend.setChecked(true);
+
         // 默认显示的碎片
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();

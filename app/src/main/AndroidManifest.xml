@@ -10,11 +10,17 @@
         android:theme="@style/AppTheme">
         <activity android:name=".homepage.MainActivity"
             android:theme="@style/Custum_title">
+        </activity>
+        <activity android:name=".guidepage.GuidePageActivity"
+            android:theme="@style/Custum_title">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
+        </activity>
+        <activity android:name=".welcome.WelcomeActivity"
+            android:theme="@style/Custum_title">
         </activity>
     </application>
 

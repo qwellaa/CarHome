@@ -43,8 +43,6 @@ public abstract class BaseFragment extends Fragment {
         initData();
     }
 
-    protected abstract void initData();
-
     protected abstract void initView();
 
     protected <T extends View> T bindView(int id){
@@ -54,4 +52,6 @@ public abstract class BaseFragment extends Fragment {
     protected <T extends View> T bindView(int id, View v){
         return (T) v.findViewById(id);
     }
+
+    protected abstract void initData();
 }
