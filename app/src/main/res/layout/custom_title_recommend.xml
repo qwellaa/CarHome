@@ -9,19 +9,19 @@
         android:background="@mipmap/yinpin"
         android:layout_centerVertical="true"
         android:id="@+id/btn_audio"/>
-    <ImageButton
+    <Button
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:background="@mipmap/more"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
-        android:id="@+id/ibtn_more"/>
-    <ImageButton
+        android:id="@+id/btn_more"/>
+    <Button
         android:layout_marginRight="15dp"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:background="@drawable/search"
-        android:layout_toLeftOf="@id/ibtn_more"
+        android:layout_toLeftOf="@id/btn_more"
         android:layout_centerVertical="true"
         android:id="@+id/ibtn_search"/>
 </RelativeLayout>

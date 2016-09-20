@@ -35,13 +35,11 @@ public class RecommendFragment extends BaseFragment{
     @Override
     protected void initData() {
         plvRecommend.setMode(PullToRefreshBase.Mode.BOTH);
-
-
         plvRecommend.setOnRefreshListener(new PullToRefreshBase.OnRefreshListener2<ListView>() {
             // 下拉刷新
             @Override
             public void onPullDownToRefresh(PullToRefreshBase<ListView> refreshView) {
-
+                sendInterent();
             }
 
             // 上拉加载
@@ -62,6 +60,7 @@ public class RecommendFragment extends BaseFragment{
                     @Override
                     public void onResponse(RecommendBean response) {
                         adapter.setBean(response);
+                        plvRecommend.onRefreshComplete();
                     }
                 }, new Response.ErrorListener() {
             @Override
