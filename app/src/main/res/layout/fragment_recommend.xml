@@ -6,10 +6,9 @@
 
     <include layout="@layout/custom_title_recommend"
                       android:id="@+id/include_title_recommend"/>
-
-    <ListView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/lv_recommend">
-    </ListView>
+    <com.handmark.pulltorefresh.library.PullToRefreshListView
+        android:id="@+id/pLv_recommend"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+    </com.handmark.pulltorefresh.library.PullToRefreshListView>
 </LinearLayout>
