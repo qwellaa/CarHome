@@ -6,14 +6,13 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="40dp"
-        android:drawableLeft="@mipmap/ic_launcher"
-        android:text="音频"
+        android:background="@mipmap/yinpin"
         android:layout_centerVertical="true"
         android:id="@+id/btn_audio"/>
     <ImageButton
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:background="@mipmap/ic_launcher"
+        android:background="@mipmap/more"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
         android:id="@+id/ibtn_more"/>
