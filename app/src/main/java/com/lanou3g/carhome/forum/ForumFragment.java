@@ -48,7 +48,7 @@ public class ForumFragment extends BaseFragment{
         tbForum.setupWithViewPager(vpForum);
 
         // 更改tab 下滑线
-        tbForum.setSelectedTabIndicatorColor(Color.CYAN);
+        tbForum.setSelectedTabIndicatorColor(Color.BLACK);
         // 给tab文字 加选中颜色
         tbForum.setTabTextColors(Color.GRAY, Color.BLACK);
     }

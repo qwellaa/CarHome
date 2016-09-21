@@ -1,7 +1,6 @@
 package com.lanou3g.carhome.recommend;
 
 import android.content.Intent;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -72,7 +71,7 @@ public class RecommendFragment extends BaseFragment implements View.OnClickListe
 
             }
         });
-        adapter = new RecommendAdapter(getContext());
+        adapter = new RecommendAdapter(context);
         plvRecommend.setAdapter(adapter);
         sendInterent();
     }
@@ -88,7 +87,6 @@ public class RecommendFragment extends BaseFragment implements View.OnClickListe
                         ArrayList<String> images = new ArrayList<>();
                         for (int i = 0; i < response.getResult().getFocusimg().size(); i++) {
                             images.add(response.getResult().getFocusimg().get(i).getImgurl());
-                            Log.d("RecommendFragment", images.get(i));
                         }
 
                         banner.setBannerStyle(BannerConfig.CIRCLE_INDICATOR);

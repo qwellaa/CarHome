@@ -4,11 +4,9 @@
                 android:layout_margin="12dp"
               android:layout_width="match_parent"
               android:layout_height="match_parent">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+
         <android.support.design.widget.TabLayout
+            android:layout_centerHorizontal="true"
             android:layout_gravity="center"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
@@ -17,16 +15,17 @@
         <android.support.v4.view.ViewPager
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/vp_forum">
+            android:id="@+id/vp_forum"
+            android:layout_below="@id/tb_forum">
         </android.support.v4.view.ViewPager>
-    </LinearLayout>
-    <ImageView
+
+    <Button
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_alignParentRight="true"
-        android:background="@mipmap/more"
+        android:background="@drawable/more"
         android:id="@+id/iv_forum_more"/>
-    <ImageView
+    <Button
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:background="@drawable/search"

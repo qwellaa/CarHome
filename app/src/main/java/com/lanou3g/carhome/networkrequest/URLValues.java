@@ -8,8 +8,11 @@ package com.lanou3g.carhome.networkrequest;
  */
 public final class URLValues {
 
-    // 推荐
+    // 第一页 推荐
     public static final String NEW_URL="http://app.api.autohome.com.cn/autov4.8.8/news/newslist-pm1-c0-nt0-p1-s30-l0.json";
 
+    // 第二页 论坛
+    // 精选
+    public static final String SELECTION_URL = "http://app.api.autohome.com.cn/autov4.8.8/club/jingxuantopic-pm1-c0-p1-s30.json";
 
 }
