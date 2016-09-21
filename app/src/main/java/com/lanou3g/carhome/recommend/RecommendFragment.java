@@ -1,5 +1,8 @@
 package com.lanou3g.carhome.recommend;
 
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -12,6 +15,10 @@ import com.lanou3g.carhome.baseclass.BaseFragment;
 import com.lanou3g.carhome.networkrequest.GsonRequest;
 import com.lanou3g.carhome.networkrequest.URLValues;
 import com.lanou3g.carhome.networkrequest.VolleySingleton;
+import com.youth.banner.Banner;
+import com.youth.banner.BannerConfig;
+
+import java.util.ArrayList;
 
 /**
  *
@@ -21,6 +28,7 @@ public class RecommendFragment extends BaseFragment{
 
     private PullToRefreshListView plvRecommend;
     private RecommendAdapter adapter;
+    private Banner banner;
 
     @Override
     protected int setLayout() {
@@ -30,6 +38,14 @@ public class RecommendFragment extends BaseFragment{
     @Override
     protected void initView() {
         plvRecommend = bindView(R.id.pLv_recommend);
+
+        View bannerView = LayoutInflater.from(getContext()).inflate(R.layout.banner_recommend, null);
+
+        banner = new Banner(context);
+        banner = bindView(R.id.banner, bannerView);
+
+        ListView listView = plvRecommend.getRefreshableView();
+        listView.addHeaderView(bannerView);
     }
 
     @Override
@@ -40,6 +56,7 @@ public class RecommendFragment extends BaseFragment{
             @Override
             public void onPullDownToRefresh(PullToRefreshBase<ListView> refreshView) {
                 sendInterent();
+                Toast.makeText(context, "刷新成功", Toast.LENGTH_SHORT).show();
             }
 
             // 上拉加载
@@ -61,11 +78,21 @@ public class RecommendFragment extends BaseFragment{
                     public void onResponse(RecommendBean response) {
                         adapter.setBean(response);
                         plvRecommend.onRefreshComplete();
+                        ArrayList<String> images = new ArrayList<>();
+                        for (int i = 0; i < response.getResult().getFocusimg().size(); i++) {
+                            images.add(response.getResult().getFocusimg().get(i).getImgurl());
+                            Log.d("RecommendFragment", images.get(i));
+                        }
+
+                        banner.setBannerStyle(BannerConfig.CIRCLE_INDICATOR);
+                        banner.setIndicatorGravity(BannerConfig.RIGHT);
+                        banner.setImages(images);
+
                     }
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getContext(), "网络请求失败", Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "网络请求失败", Toast.LENGTH_SHORT).show();
             }
         });
         VolleySingleton.getInstance().addRequest(gsonRequest);

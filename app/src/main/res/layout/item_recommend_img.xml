@@ -19,7 +19,6 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:layout_marginRight="2dp"
-            android:background="@mipmap/ic_launcher"
             android:id="@+id/item_recommend_img_image_one"/>
         <ImageView
             android:layout_width="wrap_content"
@@ -27,7 +26,6 @@
             android:layout_weight="1"
             android:layout_marginLeft="2dp"
             android:layout_marginRight="2dp"
-            android:background="@mipmap/ic_launcher"
             android:id="@+id/item_recommend_img_image_two"/>
         <ImageView
             android:layout_marginRight="2dp"
@@ -35,7 +33,6 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@mipmap/ic_launcher"
             android:id="@+id/item_recommend_img_image_three"/>
     </LinearLayout>
     <RelativeLayout
