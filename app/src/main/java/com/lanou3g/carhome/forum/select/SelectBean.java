@@ -5,7 +5,7 @@ import java.util.List;
 /**
  *
  */
-public class SelectionBean {
+public class SelectBean {
 
 
     /**

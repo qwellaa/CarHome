@@ -1,3 +1,44 @@
 <resources>
     <string name="app_name">CarHome</string>
+    <string-array name="alls">
+        <item>媳妇当车模</item>
+        <item>美人"记"</item>
+        <item>论坛红人馆</item>
+        <item>论坛讲师</item>
+        <item>精挑细选</item>
+        <item>现身说法</item>
+        <item>高端阵地</item>
+        <item>电动车</item>
+        <item>汇买车</item>
+        <item>行车点评</item>
+        <item>超级试驾员</item>
+        <item>海外购车</item>
+        <item>经典老车</item>
+        <item>妹子选车</item>
+        <item>优惠购车</item>
+        <item>原创大片</item>
+        <item>顶配风采</item>
+        <item>改装有理</item>
+        <item>养车有道</item>
+        <item>首发阵营</item>
+        <item>新车直播</item>
+        <item>历史选题</item>
+        <item>摩友天地</item>
+        <item>蜜月之旅</item>
+        <item>甜蜜婚礼</item>
+        <item>摄影课堂</item>
+        <item>车友聚会</item>
+        <item>单车部落</item>
+        <item>杂谈俱乐部</item>
+        <item>华北游记</item>
+        <item>西南游记</item>
+        <item>东北游记</item>
+        <item>西北游记</item>
+        <item>华中游记</item>
+        <item>华南游记</item>
+        <item>华东游记</item>
+        <item>港澳台游记</item>
+        <item>海外游记</item>
+        <item>沧海遗珠</item>
+    </string-array>
 </resources>

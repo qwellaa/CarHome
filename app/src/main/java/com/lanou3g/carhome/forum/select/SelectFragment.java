@@ -1,5 +1,6 @@
 package com.lanou3g.carhome.forum.select;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -12,6 +13,8 @@ import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
 import com.lanou3g.carhome.R;
 import com.lanou3g.carhome.baseclass.BaseFragment;
+import com.lanou3g.carhome.forum.selectionall.SelectionAllActivity;
+import com.lanou3g.carhome.forum.selectionrecommend.SelectionActivity;
 import com.lanou3g.carhome.networkrequest.GsonRequest;
 import com.lanou3g.carhome.networkrequest.URLValues;
 import com.lanou3g.carhome.networkrequest.VolleySingleton;
@@ -25,13 +28,17 @@ import java.util.ArrayList;
 public class SelectFragment extends BaseFragment implements View.OnClickListener {
 
     private PullToRefreshListView plvSelection;
-    private SelectionAdapter adapter;
+    private SelectAdapter adapter;
     private Button btnWife;
     private Button btnBeauty;
     private Button btnHigh;
     private Button btnMo;
     private Button btnChoseCare;
     private Button btnGirlChose;
+    private Button btnSr;
+    private Button btnTfHour;
+    private Button btnRedPeople;
+    private Button btnConversion;
 
     @Override
     protected int setLayout() {
@@ -49,6 +56,10 @@ public class SelectFragment extends BaseFragment implements View.OnClickListener
         btnMo = bindView(R.id.btn_headview_selection_mo, selectView);
         btnChoseCare = bindView(R.id.btn_headview_selection_chosecare, selectView);
         btnGirlChose = bindView(R.id.btn_headview_selection_girlchose, selectView);
+        btnRedPeople = bindView(R.id.btn_headview_selection_redpeople, selectView);
+        btnConversion = bindView(R.id.btn_headview_selection_conversion, selectView);
+        btnSr = bindView(R.id.btn_headview_selection_sr, selectView);
+        btnTfHour = bindView(R.id.btn_headview_selection_tfhour, selectView);
 
         ListView listView = plvSelection.getRefreshableView();
         listView.addHeaderView(selectView);
@@ -63,6 +74,10 @@ public class SelectFragment extends BaseFragment implements View.OnClickListener
         btnMo.setOnClickListener(this);
         btnChoseCare.setOnClickListener(this);
         btnGirlChose.setOnClickListener(this);
+        btnConversion.setOnClickListener(this);
+        btnRedPeople.setOnClickListener(this);
+        btnSr.setOnClickListener(this);
+        btnTfHour.setOnClickListener(this);
 
         plvSelection.setMode(PullToRefreshBase.Mode.BOTH);
         plvSelection.setOnRefreshListener(new PullToRefreshBase.OnRefreshListener2<ListView>() {
@@ -78,7 +93,7 @@ public class SelectFragment extends BaseFragment implements View.OnClickListener
 
             }
         });
-        adapter = new SelectionAdapter(context);
+        adapter = new SelectAdapter(context);
         plvSelection.setAdapter(adapter);
         selectionSendInterent();
 
@@ -93,6 +108,8 @@ public class SelectFragment extends BaseFragment implements View.OnClickListener
         buttons.add(btnMo);
         buttons.add(btnChoseCare);
         buttons.add(btnGirlChose);
+        buttons.add(btnConversion);
+        buttons.add(btnRedPeople);
         ArrayList<Integer> backGrounds = new ArrayList<>();
         backGrounds.add(R.drawable.blue_btn_bg);
         backGrounds.add(R.drawable.orange_btn_bg);
@@ -107,11 +124,11 @@ public class SelectFragment extends BaseFragment implements View.OnClickListener
     }
 
     private void selectionSendInterent() {
-        GsonRequest<SelectionBean> gsonRequest = new GsonRequest<SelectionBean>(URLValues.SELECTION_URL,
-                SelectionBean.class,
-                new Response.Listener<SelectionBean>() {
+        GsonRequest<SelectBean> gsonRequest = new GsonRequest<SelectBean>(URLValues.SELECTION_URL,
+                SelectBean.class,
+                new Response.Listener<SelectBean>() {
                     @Override
-                    public void onResponse(SelectionBean response) {
+                    public void onResponse(SelectBean response) {
                         adapter.setBean(response);
                         plvSelection.onRefreshComplete();
                     }
@@ -126,18 +143,70 @@ public class SelectFragment extends BaseFragment implements View.OnClickListener
 
     @Override
     public void onClick(View view) {
+        Intent intent = new Intent();
         switch (view.getId()) {
             case R.id.btn_headview_selection_wife:
+                String strWife = (String) btnWife.getText();
+                intent.setClass(getActivity(), SelectionActivity.class);
+                intent.putExtra("url", URLValues.WIFE_URL);
+                intent.putExtra("title", strWife);
+                startActivity(intent);
                 break;
             case R.id.btn_headview_selection_beauty:
+                String strBeauty = (String) btnBeauty.getText();
+                intent.setClass(getActivity(), SelectionActivity.class);
+                intent.putExtra("url", URLValues.BEAUTY_URL);
+                intent.putExtra("title", strBeauty);
+                startActivity(intent);
                 break;
             case R.id.btn_headview_selection_high:
+                String strHigh = (String) btnHigh.getText();
+                intent.setClass(getActivity(), SelectionActivity.class);
+                intent.putExtra("url", URLValues.HIGH_URL);
+                intent.putExtra("title", strHigh);
+                startActivity(intent);
                 break;
             case R.id.btn_headview_selection_mo:
+                String strMo = (String) btnMo.getText();
+                intent.setClass(getActivity(), SelectionActivity.class);
+                intent.putExtra("url", URLValues.MO_URL);
+                intent.putExtra("title", strMo);
+                startActivity(intent);
                 break;
             case R.id.btn_headview_selection_chosecare:
+                String strChoseCare = (String) btnChoseCare.getText();
+                intent.setClass(getActivity(), SelectionActivity.class);
+                intent.putExtra("url", URLValues.CHOSECARE_URL);
+                intent.putExtra("title", strChoseCare);
+                startActivity(intent);
                 break;
             case R.id.btn_headview_selection_girlchose:
+                String strGirlChose = (String) btnGirlChose.getText();
+                intent.setClass(getActivity(), SelectionActivity.class);
+                intent.putExtra("url", URLValues.GIRL_CHOSE_URL);
+                intent.putExtra("title", strGirlChose);
+                startActivity(intent);
+                break;
+            case R.id.btn_headview_selection_conversion:
+                String strConversion = (String) btnConversion.getText();
+                intent.setClass(getActivity(), SelectionActivity.class);
+                intent.putExtra("url", URLValues.CONVERSION_URL);
+                intent.putExtra("title", strConversion);
+                startActivity(intent);
+                break;
+            case R.id.btn_headview_selection_redpeople:
+                String strRedPeople = (String) btnRedPeople.getText();
+                intent.setClass(getActivity(), SelectionActivity.class);
+                intent.putExtra("url", URLValues.RED_PEOPLE_URL);
+                intent.putExtra("title", strRedPeople);
+                startActivity(intent);
+                break;
+            case R.id.btn_headview_selection_sr:
+                intent.setClass(getActivity(), SelectionAllActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.btn_headview_selection_tfhour:
+
                 break;
         }
     }

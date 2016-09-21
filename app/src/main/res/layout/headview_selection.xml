@@ -11,12 +11,15 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@mipmap/selection_recommended"/>
+            android:background="@mipmap/selection_recommended"
+            android:id="@+id/btn_headview_selection_sr"/>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_margin="3dp">
             <Button
+                android:layout_weight="1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="媳妇当车模"
@@ -24,6 +27,7 @@
                 android:id="@+id/btn_headview_selection_wife"
                 android:background="@drawable/blue_btn_bg"/>
             <Button
+                android:layout_weight="1"
                 android:layout_marginLeft="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -32,6 +36,7 @@
                 android:id="@+id/btn_headview_selection_beauty"
                 android:background="@drawable/orange_btn_bg"/>
             <Button
+                android:layout_weight="1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="高端阵地"
@@ -39,12 +44,22 @@
                 android:textColor="#3F89FE"
                 android:id="@+id/btn_headview_selection_high"
                 android:background="@drawable/blue_btn_bg"/>
+            <Button
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="论坛红人馆"
+                android:layout_marginLeft="10dp"
+                android:textColor="#3F89FE"
+                android:id="@+id/btn_headview_selection_redpeople"
+                android:background="@drawable/blue_btn_bg"/>
         </LinearLayout>
         <LinearLayout
             android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_margin="3dp">
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -68,6 +83,14 @@
                 android:textColor="#FF8000"
                 android:id="@+id/btn_headview_selection_girlchose"
                 android:background="@drawable/orange_btn_bg"/>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="改装有理"
+                android:layout_marginLeft="10dp"
+                android:textColor="#FF8000"
+                android:id="@+id/btn_headview_selection_conversion"
+                android:background="@drawable/orange_btn_bg"/>
         </LinearLayout>
     </LinearLayout>
     <TextView
@@ -77,7 +100,8 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/hours_top"/>
+        android:background="@drawable/hours_top"
+        android:id="@+id/btn_headview_selection_tfhour"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="10dp"

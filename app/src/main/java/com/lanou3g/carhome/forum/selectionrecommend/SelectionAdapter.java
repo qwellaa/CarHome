@@ -1,4 +1,4 @@
-package com.lanou3g.carhome.forum.select;
+package com.lanou3g.carhome.forum.selectionrecommend;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -64,12 +64,10 @@ public class SelectionAdapter extends BaseAdapter{
     }
 
     private class SelectionViewHolder {
-
         private final ImageView ivImage;
         private final TextView tvComment;
         private final TextView tvDate;
         private final TextView tvTitle;
-
         public SelectionViewHolder(View view) {
             ivImage = (ImageView) view.findViewById(R.id.item_selection_image);
             tvComment = (TextView) view.findViewById(R.id.item_selection_comment);
