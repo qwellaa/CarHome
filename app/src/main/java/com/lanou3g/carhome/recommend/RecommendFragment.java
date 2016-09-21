@@ -1,8 +1,10 @@
 package com.lanou3g.carhome.recommend;
 
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -15,6 +17,7 @@ import com.lanou3g.carhome.baseclass.BaseFragment;
 import com.lanou3g.carhome.networkrequest.GsonRequest;
 import com.lanou3g.carhome.networkrequest.URLValues;
 import com.lanou3g.carhome.networkrequest.VolleySingleton;
+import com.lanou3g.carhome.search.SearchActivity;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
 
@@ -23,12 +26,13 @@ import java.util.ArrayList;
 /**
  *
  */
-public class RecommendFragment extends BaseFragment{
+public class RecommendFragment extends BaseFragment implements View.OnClickListener {
 
 
     private PullToRefreshListView plvRecommend;
     private RecommendAdapter adapter;
     private Banner banner;
+    private Button btnSearch;
 
     @Override
     protected int setLayout() {
@@ -38,6 +42,7 @@ public class RecommendFragment extends BaseFragment{
     @Override
     protected void initView() {
         plvRecommend = bindView(R.id.pLv_recommend);
+        btnSearch = bindView(R.id.ibtn_search);
 
         View bannerView = LayoutInflater.from(getContext()).inflate(R.layout.banner_recommend, null);
 
@@ -50,6 +55,8 @@ public class RecommendFragment extends BaseFragment{
 
     @Override
     protected void initData() {
+        btnSearch.setOnClickListener(this);
+
         plvRecommend.setMode(PullToRefreshBase.Mode.BOTH);
         plvRecommend.setOnRefreshListener(new PullToRefreshBase.OnRefreshListener2<ListView>() {
             // 下拉刷新
@@ -96,5 +103,15 @@ public class RecommendFragment extends BaseFragment{
             }
         });
         VolleySingleton.getInstance().addRequest(gsonRequest);
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.ibtn_search:
+                Intent searchIntent = new Intent(getActivity(), SearchActivity.class);
+                startActivity(searchIntent);
+                break;
+        }
     }
 }

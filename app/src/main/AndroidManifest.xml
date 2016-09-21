@@ -24,6 +24,8 @@
         <activity android:name=".welcome.WelcomeActivity"
             android:theme="@style/Custum_title">
         </activity>
+        <activity android:name=".search.SearchActivity"
+            android:theme="@style/Custum_title"/>
     </application>
 
 </manifest>
