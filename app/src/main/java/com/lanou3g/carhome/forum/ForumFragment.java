@@ -12,10 +12,11 @@ import com.lanou3g.carhome.forum.tbforum.TbForumFragment;
 
 import java.util.ArrayList;
 
+
 /**
  *
  */
-public class ForumFragment extends BaseFragment{
+public class ForumFragment extends BaseFragment {
 
     private TabLayout tbForum;
     private ViewPager vpForum;

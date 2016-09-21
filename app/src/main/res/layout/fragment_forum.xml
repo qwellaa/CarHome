@@ -19,18 +19,17 @@
             android:layout_below="@id/tb_forum">
         </android.support.v4.view.ViewPager>
 
-    <Button
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_alignParentRight="true"
-        android:background="@drawable/more"
-        android:id="@+id/iv_forum_more"/>
-    <Button
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:background="@drawable/search"
-        android:layout_marginRight="5dp"
-        android:layout_toLeftOf="@id/iv_forum_more"
-        android:id="@+id/iv_forum_search"/>
-
+        <Button
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/more"
+            android:id="@+id/btn_forum_drawer"/>
+        <Button
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/search"
+            android:layout_marginRight="5dp"
+            android:layout_toLeftOf="@id/btn_forum_drawer"
+            android:id="@+id/btn_forum_search"/>
 </RelativeLayout>
