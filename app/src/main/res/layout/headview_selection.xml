@@ -21,6 +21,7 @@
                 android:layout_height="wrap_content"
                 android:text="媳妇当车模"
                 android:textColor="#3F89FE"
+                android:id="@+id/btn_headview_selection_wife"
                 android:background="@drawable/blue_btn_bg"/>
             <Button
                 android:layout_marginLeft="10dp"
@@ -28,6 +29,7 @@
                 android:layout_height="wrap_content"
                 android:text="美人'记'"
                 android:textColor="#FF8000"
+                android:id="@+id/btn_headview_selection_beauty"
                 android:background="@drawable/orange_btn_bg"/>
             <Button
                 android:layout_width="wrap_content"
@@ -35,6 +37,7 @@
                 android:text="高端阵地"
                 android:layout_marginLeft="10dp"
                 android:textColor="#3F89FE"
+                android:id="@+id/btn_headview_selection_high"
                 android:background="@drawable/blue_btn_bg"/>
         </LinearLayout>
         <LinearLayout
@@ -47,6 +50,7 @@
                 android:layout_height="wrap_content"
                 android:text="摩友天地"
                 android:textColor="#FF8000"
+                android:id="@+id/btn_headview_selection_mo"
                 android:background="@drawable/orange_btn_bg"/>
             <Button
                 android:layout_marginLeft="10dp"
@@ -54,6 +58,7 @@
                 android:layout_height="wrap_content"
                 android:text="精挑细选"
                 android:textColor="#3F89FE"
+                android:id="@+id/btn_headview_selection_chosecare"
                 android:background="@drawable/blue_btn_bg"/>
             <Button
                 android:layout_width="wrap_content"
@@ -61,6 +66,7 @@
                 android:text="妹子选车"
                 android:layout_marginLeft="10dp"
                 android:textColor="#FF8000"
+                android:id="@+id/btn_headview_selection_girlchose"
                 android:background="@drawable/orange_btn_bg"/>
         </LinearLayout>
     </LinearLayout>
