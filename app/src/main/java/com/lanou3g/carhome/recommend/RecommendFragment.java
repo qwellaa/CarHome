@@ -108,6 +108,7 @@ public class RecommendFragment extends BaseFragment implements View.OnClickListe
         switch (view.getId()){
             case R.id.ibtn_search:
                 Intent searchIntent = new Intent(getActivity(), SearchActivity.class);
+                searchIntent.putExtra("hint", "搜索关键词");
                 startActivity(searchIntent);
                 break;
         }

@@ -9,6 +9,8 @@ import android.widget.Toast;
 
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.handmark.pulltorefresh.library.PullToRefreshBase;
+import com.handmark.pulltorefresh.library.PullToRefreshListView;
 import com.lanou3g.carhome.R;
 import com.lanou3g.carhome.baseclass.BaseActivity;
 import com.lanou3g.carhome.networkrequest.GsonRequest;
@@ -19,10 +21,11 @@ import com.lanou3g.carhome.networkrequest.VolleySingleton;
  */
 public class SelectionActivity extends BaseActivity{
 
-    private ListView lv;
+
     private TextView tvInTitle;
     private ImageButton ibtnBack;
     private SelectionAdapter adapter;
+    private PullToRefreshListView plvSelection;
 
     @Override
     protected int setLayout() {
@@ -31,7 +34,7 @@ public class SelectionActivity extends BaseActivity{
 
     @Override
     protected void initView() {
-        lv = bindView(R.id.lv_forum_select_selection);
+        plvSelection = bindView(R.id.pLv_selection);
         tvInTitle = bindView(R.id.tv_title_custom_title_selection);
         ibtnBack = bindView(R.id.ibtn_back_custom_title_selection);
 
@@ -41,7 +44,19 @@ public class SelectionActivity extends BaseActivity{
     protected void initData() {
 
         adapter = new SelectionAdapter(this);
-        lv.setAdapter(adapter);
+        plvSelection.setAdapter(adapter);
+        plvSelection.setMode(PullToRefreshBase.Mode.BOTH);
+        plvSelection.setOnRefreshListener(new PullToRefreshBase.OnRefreshListener2<ListView>() {
+            @Override
+            public void onPullDownToRefresh(PullToRefreshBase<ListView> refreshView) {
+                selectionSendInterent();
+            }
+
+            @Override
+            public void onPullUpToRefresh(PullToRefreshBase<ListView> refreshView) {
+
+            }
+        });
 
         selectionSendInterent();
         initBackFinish();
@@ -60,6 +75,7 @@ public class SelectionActivity extends BaseActivity{
                     @Override
                     public void onResponse(SelectionBean response) {
                         adapter.setBean(response);
+                        plvSelection.onRefreshComplete();
                     }
                 }, new Response.ErrorListener() {
             @Override

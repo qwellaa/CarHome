@@ -30,6 +30,8 @@
             android:theme="@style/Custum_title"/>
         <activity android:name=".forum.selectionall.SelectionAllActivity"
             android:theme="@style/Custum_title"/>
+        <activity android:name=".forum.tyfourhours.TyFourHoursActivity"
+            android:theme="@style/Custum_title"/>
     </application>
 
 </manifest>

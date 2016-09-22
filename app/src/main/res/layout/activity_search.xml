@@ -10,11 +10,11 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:drawableLeft="@mipmap/ahlib_searchbar_icon_search"
-        android:hint="搜索关键词"
         android:textSize="20sp"
         android:padding="5dp"
         android:drawablePadding="10dp"
-        android:background="#b5b5b5"/>
+        android:background="@drawable/search_edittext_bg"
+        android:id="@+id/et_search"/>
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

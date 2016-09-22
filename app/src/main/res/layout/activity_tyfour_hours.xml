@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
+              android:layout_margin="12dp"
               android:layout_width="match_parent"
               android:layout_height="match_parent">
-
-    <include layout="@layout/custom_title_selection"
-             android:id="@+id/include_title_selection"/>
+    <include layout="@layout/custom_title_tyfour_hours"
+             android:id="@+id/include_title_tyfour_hours"/>
     <com.handmark.pulltorefresh.library.PullToRefreshListView
-        android:id="@+id/pLv_selection"
+        android:id="@+id/pLv_tyfour_hours"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent">
     </com.handmark.pulltorefresh.library.PullToRefreshListView>

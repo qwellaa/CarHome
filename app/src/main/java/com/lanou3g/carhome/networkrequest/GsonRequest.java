@@ -1,8 +1,13 @@
 package com.lanou3g.carhome.networkrequest;
 
+import android.util.Log;
+
+import com.android.volley.Cache;
 import com.android.volley.NetworkResponse;
+import com.android.volley.NoConnectionError;
 import com.android.volley.Request;
 import com.android.volley.Response;
+import com.android.volley.VolleyError;
 import com.android.volley.toolbox.HttpHeaderParser;
 import com.google.gson.Gson;
 
@@ -47,5 +52,20 @@ public class GsonRequest<T> extends Request<T>{
     @Override
     protected void deliverResponse(T response) {
         mListener.onResponse(response);
+    }
+    //网络拉取失败 就拉取缓存
+    @Override
+    public void deliverError(VolleyError error) {
+        if (error instanceof NoConnectionError) {
+            Cache.Entry entry = this.getCacheEntry();
+            if (entry != null) {
+                Log.d("数据", "这是缓存数据");
+                Response<T> response = parseNetworkResponse(new NetworkResponse(entry.data, entry.responseHeaders));
+                deliverResponse(response.result);
+                return;
+            }
+        }
+        super.deliverError(error);
+
     }
 }

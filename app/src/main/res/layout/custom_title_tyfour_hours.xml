@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="50dp">
+    <TextView
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="热帖"
+        android:textSize="20sp"
+        android:id="@+id/tv_title_custom_title_tyfour_hours"/>
+    <ImageButton
+        android:layout_centerVertical="true"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:id="@+id/ibtn_back_custom_title_tyfour_hours"
+        android:background="@null"
+        android:src="@drawable/icon_back"/>
+</RelativeLayout>

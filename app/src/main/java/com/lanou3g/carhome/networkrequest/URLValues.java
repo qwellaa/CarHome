@@ -14,6 +14,8 @@ public final class URLValues {
     // 第二页 论坛
     // 精选
     public static final String SELECTION_URL = "http://app.api.autohome.com.cn/autov4.8.8/club/jingxuantopic-pm1-c0-p1-s30.json";
+    // 24小时热帖
+    public static final String TFHOURS_URL = "http://183.232.160.141/club.app.autohome.com.cn/club_v7.0.5/club/shotfoumlist-pm2-p1-s50.json";
     // 媳妇当车模
     public static final String WIFE_URL = "http://app.api.autohome.com.cn/autov4.8.8/club/jingxuantopic-pm1-c104-p1-s30.json";
     // 美人'记'

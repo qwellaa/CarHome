@@ -15,6 +15,7 @@ import com.lanou3g.carhome.R;
 import com.lanou3g.carhome.baseclass.BaseFragment;
 import com.lanou3g.carhome.forum.selectionall.SelectionAllActivity;
 import com.lanou3g.carhome.forum.selectionrecommend.SelectionActivity;
+import com.lanou3g.carhome.forum.tyfourhours.TyFourHoursActivity;
 import com.lanou3g.carhome.networkrequest.GsonRequest;
 import com.lanou3g.carhome.networkrequest.URLValues;
 import com.lanou3g.carhome.networkrequest.VolleySingleton;
@@ -68,16 +69,7 @@ public class SelectFragment extends BaseFragment implements View.OnClickListener
     @Override
     protected void initData() {
 
-        btnWife.setOnClickListener(this);
-        btnBeauty.setOnClickListener(this);
-        btnHigh.setOnClickListener(this);
-        btnMo.setOnClickListener(this);
-        btnChoseCare.setOnClickListener(this);
-        btnGirlChose.setOnClickListener(this);
-        btnConversion.setOnClickListener(this);
-        btnRedPeople.setOnClickListener(this);
-        btnSr.setOnClickListener(this);
-        btnTfHour.setOnClickListener(this);
+        onClickThis();
 
         plvSelection.setMode(PullToRefreshBase.Mode.BOTH);
         plvSelection.setOnRefreshListener(new PullToRefreshBase.OnRefreshListener2<ListView>() {
@@ -98,6 +90,19 @@ public class SelectFragment extends BaseFragment implements View.OnClickListener
         selectionSendInterent();
 
         setBtnBackGround();
+    }
+
+    private void onClickThis() {
+        btnWife.setOnClickListener(this);
+        btnBeauty.setOnClickListener(this);
+        btnHigh.setOnClickListener(this);
+        btnMo.setOnClickListener(this);
+        btnChoseCare.setOnClickListener(this);
+        btnGirlChose.setOnClickListener(this);
+        btnConversion.setOnClickListener(this);
+        btnRedPeople.setOnClickListener(this);
+        btnSr.setOnClickListener(this);
+        btnTfHour.setOnClickListener(this);
     }
 
     private void setBtnBackGround() {
@@ -206,7 +211,8 @@ public class SelectFragment extends BaseFragment implements View.OnClickListener
                 startActivity(intent);
                 break;
             case R.id.btn_headview_selection_tfhour:
-
+                intent.setClass(getActivity(), TyFourHoursActivity.class);
+                startActivity(intent);
                 break;
         }
     }
