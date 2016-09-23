@@ -3,12 +3,10 @@
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="wrap_content">
-
-    <android.support.v7.widget.RecyclerView
+    <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/rv_headview_for_me_recommend">
-    </android.support.v7.widget.RecyclerView>
+        android:id="@+id/iv_headview_small_cross_bar"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="12dp"
@@ -18,5 +16,5 @@
         android:layout_height="wrap_content"
         android:textSize="15sp"
         android:padding="2dp"
-        android:id="@+id/tv_title_goods_list"/>
+        android:id="@+id/tv_headview_title_for_me"/>
 </LinearLayout>
