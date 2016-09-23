@@ -98,4 +98,8 @@ public final class URLValues {
     public static final String OVERSEAS_TRAVEL_URL = "http://app.api.autohome.com.cn/autov4.8.8/club/jingxuantopic-pm1-c226-p1-s30.json";
     // 沧海遗珠 :
     public static final String SEA_PEARL_URL = "http://app.api.autohome.com.cn/autov4.8.8/club/jingxuantopic-pm1-c212-p1-s30.json";
+
+    // 整个 第四页
+    public static final String GOODS_LIST_URL = "http://223.99.255.20/mobile.app.autohome.com.cn/discover_v7.0.0/mobile/getcardlist.ashx?a=2&pm=1&v=7.0.0&uid=&deviceid=021676cd548e5cf2b6149c916a767228fac74da0&pid=0&cid=0&state=1&pageindex=1&pagesize=20&lat=0.000000&lng=0.000000&hid=";
+
 }
