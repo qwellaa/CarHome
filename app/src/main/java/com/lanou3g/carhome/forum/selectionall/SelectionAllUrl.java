@@ -35,7 +35,6 @@ public class SelectionAllUrl {
         urlList.add(URLValues.FIRST_CAMP_URL);
         urlList.add(URLValues.NEW_LIVE_URL);
         urlList.add(URLValues.HISTORICAL_TOPIC_URL);
-        urlList.add(URLValues.GREAT_VIDEO_URL);
         urlList.add(URLValues.MO_URL);
         urlList.add(URLValues.HONEYMOON_URL);
         urlList.add(URLValues.SWEET_WEDDING_URL);
