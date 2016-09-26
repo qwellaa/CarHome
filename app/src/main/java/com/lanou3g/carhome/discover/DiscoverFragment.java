@@ -68,9 +68,9 @@ public class DiscoverFragment extends BaseFragment{
             }
         });
 
-        goodsListAdapter = new GoodsListAdapter(context);
-        forMeRecommedAdapter = new ForMeRecommedAdapter(context,10);
-        guessAdapter = new ForMeRecommedAdapter(context, 9);
+        goodsListAdapter = new GoodsListAdapter(context, 10);
+        forMeRecommedAdapter = new ForMeRecommedAdapter(context,9);
+        guessAdapter = new ForMeRecommedAdapter(context, 8);
 
 
         initSendInterent();
@@ -95,7 +95,8 @@ public class DiscoverFragment extends BaseFragment{
                         forMeRecommedAdapter.setBean(response);
                         guessAdapter.setBean(response);
 
-                        Picasso.with(context).load(response.getResult().getCardlist().get(8).getData().get(0).getImageurl()).into(imageSmallBar);
+                        Picasso.with(context).load(response.getResult().getCardlist().get(7).getData().get(0).getImageurl()).into(imageSmallBar);
+
                         initSetTitle(response);
                         plvDiscover.onRefreshComplete();
                     }
@@ -132,7 +133,7 @@ public class DiscoverFragment extends BaseFragment{
     }
 
     private void initSetTitle(DiscoverBean response) {
-        tvTitleGoodsList.setText(response.getResult().getCardlist().get(11).getTitle());
+        tvTitleGoodsList.setText(response.getResult().getCardlist().get(10).getTitle());
         tvTitleForMe.setText(response.getResult().getCardlist().get(9).getTitle());
         tvTitleGuess.setText(response.getResult().getCardlist().get(8).getTitle());
     }

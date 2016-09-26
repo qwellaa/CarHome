@@ -19,9 +19,11 @@ public class GoodsListAdapter extends BaseAdapter{
 
     private Context context;
     private DiscoverBean bean;
+    private int id;
 
-    public GoodsListAdapter(Context context) {
+    public GoodsListAdapter(Context context, int id) {
         this.context = context;
+        this.id = id;
     }
 
     public void setBean(DiscoverBean bean) {
@@ -31,12 +33,12 @@ public class GoodsListAdapter extends BaseAdapter{
 
     @Override
     public int getCount() {
-        return bean == null ? 0 : bean.getResult().getCardlist().get(11).getData().size();
+        return bean == null ? 0 : bean.getResult().getCardlist().get(id).getData().size();
     }
 
     @Override
     public Object getItem(int i) {
-        return bean.getResult().getCardlist().get(11).getData().get(i);
+        return bean.getResult().getCardlist().get(id).getData().get(i);
     }
 
     @Override
@@ -55,16 +57,16 @@ public class GoodsListAdapter extends BaseAdapter{
             viewHolder = (GoodsListViewHolder) view.getTag();
         }
 
-        viewHolder.tvTitle.setText(bean.getResult().getCardlist().get(11).getData().get(i).getShorttitle());
-        viewHolder.tvBody.setText(bean.getResult().getCardlist().get(11).getData().get(i).getAdinfo());
-        viewHolder.tvNowPrice.setText(bean.getResult().getCardlist().get(11).getData().get(i).getPrice());
-        if (bean.getResult().getCardlist().get(11).getData().get(i).getFctprice().equals("")) {
+        viewHolder.tvTitle.setText(bean.getResult().getCardlist().get(id).getData().get(i).getShorttitle());
+        viewHolder.tvBody.setText(bean.getResult().getCardlist().get(id).getData().get(i).getAdinfo());
+        viewHolder.tvNowPrice.setText(bean.getResult().getCardlist().get(id).getData().get(i).getPrice());
+        if (bean.getResult().getCardlist().get(id).getData().get(i).getFctprice().equals("")) {
             viewHolder.tvOrPrice.setText("");
         } else {
-            viewHolder.tvOrPrice.setText(bean.getResult().getCardlist().get(11).getData().get(i).getFctprice());
+            viewHolder.tvOrPrice.setText(bean.getResult().getCardlist().get(id).getData().get(i).getFctprice());
         }
 
-        Picasso.with(context).load(bean.getResult().getCardlist().get(11).getData().get(i).getLogo()).into(viewHolder.image);
+        Picasso.with(context).load(bean.getResult().getCardlist().get(id).getData().get(i).getLogo()).into(viewHolder.image);
 
         return view;
     }
