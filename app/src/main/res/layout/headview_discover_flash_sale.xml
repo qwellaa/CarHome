@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content">
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rv_headview_flash_sale">
+    </android.support.v7.widget.RecyclerView>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="12dp"
+        android:background="#50b5b5b5"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:padding="2dp"
+            android:id="@+id/tv_heandview_title_flash_sale"/>
+        <Button
+            android:drawablePadding="10dp"
+            android:drawableRight="@mipmap/right_btn"
+            android:background="@null"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:padding="2dp"
+            android:id="@+id/btn_headview_rightbtn_flash_sale"/>
+    </LinearLayout>
+</LinearLayout>

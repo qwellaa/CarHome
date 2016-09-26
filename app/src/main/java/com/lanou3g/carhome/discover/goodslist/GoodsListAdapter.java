@@ -21,8 +21,11 @@ public class GoodsListAdapter extends BaseAdapter{
     private DiscoverBean bean;
     private int id;
 
-    public GoodsListAdapter(Context context, int id) {
+    public GoodsListAdapter(Context context) {
         this.context = context;
+    }
+
+    public void setId(int id) {
         this.id = id;
     }
 

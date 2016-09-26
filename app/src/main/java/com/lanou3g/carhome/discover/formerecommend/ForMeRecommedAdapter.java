@@ -21,8 +21,11 @@ public class ForMeRecommedAdapter extends RecyclerView.Adapter<ForMeRecommedAdap
     DiscoverBean bean;
     private int id;
 
-    public ForMeRecommedAdapter(Context context, int id) {
+    public ForMeRecommedAdapter(Context context) {
         this.context = context;
+    }
+
+    public void setId(int id) {
         this.id = id;
     }
 

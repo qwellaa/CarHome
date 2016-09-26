@@ -512,7 +512,7 @@ public class DiscoverBean {
                 }
             }
 
-            private static class RightbtnBean {
+            public static class RightbtnBean {
                 private String type;
                 private String data;
                 private String link;
