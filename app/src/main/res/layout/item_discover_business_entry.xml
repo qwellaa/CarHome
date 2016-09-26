@@ -7,5 +7,11 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/item_discover_activity_zone_image"/>
+        android:background="@mipmap/ic_launcher"
+        android:id="@+id/iv_item_business_entry"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="音频"
+        android:id="@+id/tv_item_business_entry"/>
 </LinearLayout>
