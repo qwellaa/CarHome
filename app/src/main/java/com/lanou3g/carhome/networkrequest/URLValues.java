@@ -19,35 +19,35 @@ public final class URLValues {
     // 24小时热帖
     public static final String TFHOURS_URL = "http://183.232.160.141/club.app.autohome.com.cn/club_v7.0.5/club/shotfoumlist-pm2-p1-s50.json";
     // 媳妇当车模
-    public static final String WIFE_URL = "http://app.api.autohome.com.cn/autov4.8.8/club/jingxuantopic-pm1-c104-p1-s30.json";
+    public static final String WIFE_URL = "http://183.232.160.141/clubnc.app.autohome.com.cn/club_v7.0.5/club/jingxuantopic.ashx?platud=2&categoryid=104&pageindex=1&pagesize=30&devicetype=android.Coolpad+8722V&deviceid=869954020592562&userid=0&operation=1&netstate=0&gps=38.889723%2C121.55098";
     // 美人'记'
-    public static final String BEAUTY_URL = "http://app.api.autohome.com.cn/autov4.8.8/club/jingxuantopic-pm1-c110-p1-s30.json";
+    public static final String BEAUTY_URL = "http://223.99.255.20/clubnc.app.autohome.com.cn/club_v7.0.5/club/jingxuantopic.ashx?platud=2&categoryid=110&pageindex=1&pagesize=30&devicetype=android.Coolpad+8722V&deviceid=869954020592562&userid=0&operation=1&netstate=0&gps=38.889723%2C121.55098";
     // 论坛红人馆
-    public static final String RED_PEOPLE_URL = "http://app.api.autohome.com.cn/autov4.8.8/club/jingxuantopic-pm1-c172-p1-s30.json";
+    public static final String RED_PEOPLE_URL = "http://223.99.255.20/clubnc.app.autohome.com.cn/club_v7.0.5/club/jingxuantopic.ashx?platud=2&categoryid=172&pageindex=1&pagesize=30&devicetype=android.Coolpad+8722V&deviceid=869954020592562&userid=0&operation=1&netstate=0&gps=38.889723%2C121.55098";
     // 论坛讲师
-    public static final String FORUM_LECTURER_URL = "http://app.api.autohome.com.cn/autov4.8.8/club/jingxuantopic-pm1-c230-p1-s30.json";
+    public static final String FORUM_LECTURER_URL = "http://183.232.160.141/clubnc.app.autohome.com.cn/club_v7.0.5/club/jingxuantopic.ashx?platud=2&categoryid=230&pageindex=1&pagesize=30&devicetype=android.Coolpad+8722V&deviceid=869954020592562&userid=0&operation=1&netstate=0&gps=38.889723%2C121.55098";
     // 精挑细选
-    public static final String CHOSECARE_URL = "http://app.api.autohome.com.cn/autov4.8.8/club/jingxuantopic-pm1-c121-p1-s30.json";
+    public static final String CHOSECARE_URL = "http://183.232.160.141/clubnc.app.autohome.com.cn/club_v7.0.5/club/jingxuantopic.ashx?platud=2&categoryid=121&pageindex=1&pagesize=30&devicetype=android.Coolpad+8722V&deviceid=869954020592562&userid=0&operation=1&netstate=0&gps=38.889723%2C121.55098";
     // 现身说法
-    public static final String ADVISE_OTHERS_URL = "http://app.api.autohome.com.cn/autov4.8.8/club/jingxuantopic-pm1-c106-p1-s30.json";
+    public static final String ADVISE_OTHERS_URL = "http://clubnc.app.autohome.com.cn/club_v7.0.5/club/jingxuantopic.ashx?platud=2&categoryid=106&pageindex=1&pagesize=30&devicetype=android.Coolpad+8722V&deviceid=869954020592562&userid=0&operation=1&netstate=0&gps=38.889723%2C121.55098";
     // 高端阵地
-    public static final String HIGH_URL ="http://app.api.autohome.com.cn/autov4.8.8/club/jingxuantopic-pm1-c118-p1-s30.json";
+    public static final String HIGH_URL ="http://clubnc.app.autohome.com.cn/club_v7.0.5/club/jingxuantopic.ashx?platud=2&categoryid=118&pageindex=1&pagesize=30&devicetype=android.Coolpad+8722V&deviceid=869954020592562&userid=0&operation=1&netstate=0&gps=38.889723%2C121.55098";
     // 电动车
-    public static final String ELECTRIC_CARS_URL = "http://app.api.autohome.com.cn/autov4.8.8/club/jingxuantopic-pm1-c210-p1-s30.json";
+    public static final String ELECTRIC_CARS_URL = "http://183.232.160.141/clubnc.app.autohome.com.cn/club_v7.0.5/club/jingxuantopic.ashx?platud=2&categoryid=210&pageindex=1&pagesize=30&devicetype=android.Coolpad+8722V&deviceid=869954020592562&userid=0&operation=1&netstate=0&gps=38.889723%2C121.55098";
     // 汇买车
-    public static final String SEND_CAR_URL = "http://app.api.autohome.com.cn/autov4.8.8/club/jingxuantopic-pm1-c199-p1-s30.json";
+    public static final String SEND_CAR_URL = "http://223.99.255.20/clubnc.app.autohome.com.cn/club_v7.0.5/club/jingxuantopic.ashx?platud=2&categoryid=199&pageindex=1&pagesize=30&devicetype=android.Coolpad+8722V&deviceid=869954020592562&userid=0&operation=1&netstate=0&gps=38.889723%2C121.55098";
     // 行车点评
-    public static final String DRIVIND_CRITIQUE_URL = "http://app.api.autohome.com.cn/autov4.8.8/club/jingxuantopic-pm1-c198-p1-s30.json";
+    public static final String DRIVIND_CRITIQUE_URL = "http://223.99.255.20/clubnc.app.autohome.com.cn/club_v7.0.5/club/jingxuantopic.ashx?platud=2&categoryid=198&pageindex=1&pagesize=30&devicetype=android.Coolpad+8722V&deviceid=869954020592562&userid=0&operation=1&netstate=0&gps=38.889723%2C121.55098";
     // 超级试驾员
-    public static final String DRIVING_MEMBER_URL = "http://app.api.autohome.com.cn/autov4.8.8/club/jingxuantopic-pm1-c168-p1-s30.json";
+    public static final String DRIVING_MEMBER_URL = "http://223.99.255.20/clubnc.app.autohome.com.cn/club_v7.0.5/club/jingxuantopic.ashx?platud=2&categoryid=168&pageindex=1&pagesize=30&devicetype=android.Coolpad+8722V&deviceid=869954020592562&userid=0&operation=1&netstate=0&gps=38.889723%2C121.55098";
     // 海外购车
-    public static final String OVERSEAS_BUYERS_URL = "http://app.api.autohome.com.cn/autov4.8.8/club/jingxuantopic-pm1-c113-p1-s30.json";
+    public static final String OVERSEAS_BUYERS_URL = "http://223.99.255.20/clubnc.app.autohome.com.cn/club_v7.0.5/club/jingxuantopic.ashx?platud=2&categoryid=113&pageindex=1&pagesize=30&devicetype=android.Coolpad+8722V&deviceid=869954020592562&userid=0&operation=1&netstate=0&gps=38.889723%2C121.55098";
     // 经典老车
-    public static final String CLASSIC_CAR_URL = "http://app.api.autohome.com.cn/autov4.8.8/club/jingxuantopic-pm1-c109-p1-s30.json";
+    public static final String CLASSIC_CAR_URL = "http://clubnc.app.autohome.com.cn/club_v7.0.5/club/jingxuantopic.ashx?platud=2&categoryid=109&pageindex=1&pagesize=30&devicetype=android.Coolpad+8722V&deviceid=869954020592562&userid=0&operation=1&netstate=0&gps=38.889723%2C121.55098";
     // 妹子选车
-    public static final String GIRL_CHOSE_URL ="http://app.api.autohome.com.cn/autov4.8.8/club/jingxuantopic-pm1-c191-p1-s30.json";
+    public static final String GIRL_CHOSE_URL ="http://223.99.255.20/clubnc.app.autohome.com.cn/club_v7.0.5/club/jingxuantopic.ashx?platud=2&categoryid=191&pageindex=1&pagesize=30&devicetype=android.Coolpad+8722V&deviceid=869954020592562&userid=0&operation=1&netstate=0&gps=38.889723%2C121.55098";
     // 优惠购车
-    public static final String PREFERENTIAL_CAR_URL = "http://app.api.autohome.com.cn/autov4.8.8/club/jingxuantopic-pm1-c196-p1-s30.json";
+    public static final String PREFERENTIAL_CAR_URL = "http://clubnc.app.autohome.com.cn/club_v7.0.5/club/jingxuantopic.ashx?platud=2&categoryid=196&pageindex=1&pagesize=30&devicetype=android.Coolpad+8722V&deviceid=869954020592562&userid=0&operation=1&netstate=0&gps=38.889723%2C121.55098";
     // 原创大片
     public static final String ORIGINAL_LARGE_URL = "http://app.api.autohome.com.cn/autov4.8.8/club/jingxuantopic-pm1-c107-p1-s30.json";
     // 顶配风采
