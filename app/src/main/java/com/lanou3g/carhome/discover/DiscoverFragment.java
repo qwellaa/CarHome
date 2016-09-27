@@ -218,7 +218,7 @@ public class DiscoverFragment extends BaseFragment{
                 }
 
                 banner.setBannerStyle(BannerConfig.CIRCLE_INDICATOR);
-                banner.setIndicatorGravity(BannerConfig.RIGHT);
+                banner.setIndicatorGravity(BannerConfig.CENTER);
                 banner.setImages(images);
             }
 

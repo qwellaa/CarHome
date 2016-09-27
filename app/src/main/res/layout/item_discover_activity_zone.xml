@@ -6,6 +6,7 @@
     android:gravity="center">
     <ImageView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="120dp"
+        android:background="@mipmap/ic_launcher"
         android:id="@+id/item_discover_activity_zone_image"/>
 </LinearLayout>
