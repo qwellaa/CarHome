@@ -8,6 +8,9 @@ package com.lanou3g.carhome.networkrequest;
  */
 public final class URLValues {
 
+    // 欢迎页
+    public static final String WELCOME_URL = "http://adnewnc.app.autohome.com.cn/advert_v7.0.0/ad/startrunningad.ashx?appid=2&platform=1&version=7.0.0&networkid=0&idfa=6C0EC63C-DC2C-4CD5-B819-6E347AE4505E&deviceid=021676cd548e5cf2b6149c916a767228fac74da0&mac=0&size=320_568&cityid=0&devicebrand=apple&devicemodel=iPhone&gps_city=0&lng=0.000000&lat=0.000000&pageid=021676cd548e5cf2b6149c916a767228fac74da01474942181154&isretry=0";
+
     // 第一页 推荐
     public static final String NEW_URL="http://app.api.autohome.com.cn/autov4.8.8/news/newslist-pm1-c0-nt0-p1-s30-l0.json";
 
@@ -97,6 +100,14 @@ public final class URLValues {
     public static final String OVERSEAS_TRAVEL_URL = "http://clubnc.app.autohome.com.cn/club_v7.0.5/club/jingxuantopic.ashx?platud=2&categoryid=225&pageindex=1&pagesize=30&devicetype=android.Coolpad+8722V&deviceid=869954020592562&userid=0&operation=1&netstate=0&gps=38.889733%2C121.550952";
     // 沧海遗珠 :
     public static final String SEA_PEARL_URL = "http://clubnc.app.autohome.com.cn/club_v7.0.5/club/jingxuantopic.ashx?platud=2&categoryid=212&pageindex=1&pagesize=30&devicetype=android.Coolpad+8722V&deviceid=869954020592562&userid=0&operation=1&netstate=0&gps=38.889733%2C121.550952";
+
+    // 第三页
+    // 标签
+    public static final String LABLE_URL = "http://cars.app.autohome.com.cn/cars_v7.0.0/cars/getmarks-a2-pm2.json";
+    // 热门品牌
+    public static final String POPULAR_BRAND = "http://183.232.160.141/cars.app.autohome.com.cn/dealer_v6.0.0/dealer/hotbrands-pm2.json ";
+    // 主打车
+    public static final String MAIN_CAR_URL = "http://223.99.255.20/adnewnc.app.autohome.com.cn/advert_v7.0.0/ad/infoad.ashx?appid=2&platform=1&version=7.0.0&networkid=0&adtype=1&provinceid=0&lng=0.000000&lat=0.000000&pageindex=1&deviceid=021676cd548e5cf2b6149c916a767228fac74da0&idfa=6C0EC63C-DC2C-4CD5-B819-6E347AE4505E&devicebrand=apple&devicemodel=iPhone&gps_city=0&pageid=021676cd548e5cf2b6149c916a767228fac74da01474942793872&isretry=0";
 
     // 整个 第四页
     public static final String GOODS_LIST_URL = "http://223.99.255.20/mobile.app.autohome.com.cn/discover_v7.0.0/mobile/getcardlist.ashx?a=2&pm=1&v=7.0.0&uid=&deviceid=021676cd548e5cf2b6149c916a767228fac74da0&pid=0&cid=0&state=1&pageindex=1&pagesize=20&lat=0.000000&lng=0.000000&hid=";

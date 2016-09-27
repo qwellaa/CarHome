@@ -109,7 +109,7 @@ public class SelectionBean {
             private String title;
             private String lastreplydate;
             private String postusername;
-            private int replycounts;
+            private String replycounts;
             private int isclosed;
             private String bigpic;
             private String smallpic;
@@ -153,11 +153,11 @@ public class SelectionBean {
                 this.postusername = postusername;
             }
 
-            public int getReplycounts() {
+            public String getReplycounts() {
                 return replycounts;
             }
 
-            public void setReplycounts(int replycounts) {
+            public void setReplycounts(String replycounts) {
                 this.replycounts = replycounts;
             }
 

@@ -69,7 +69,8 @@ public class GoodsListAdapter extends BaseAdapter{
             viewHolder.tvOrPrice.setText(bean.getResult().getCardlist().get(id).getData().get(i).getFctprice());
         }
 
-        Picasso.with(context).load(bean.getResult().getCardlist().get(id).getData().get(i).getLogo()).into(viewHolder.image);
+        Picasso.with(context).load(bean.getResult().getCardlist().get(id).getData().get(i).getLogo())
+                .placeholder(R.mipmap.ahlib_carback).error(R.mipmap.ahlib_carback).into(viewHolder.image);
 
         return view;
     }

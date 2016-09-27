@@ -175,7 +175,8 @@ public class DiscoverFragment extends BaseFragment{
             }
             if (response.getResult().getCardlist().get(i).getDescription().equals("单帧小号横栏")) {
                 if (response.getResult().getCardlist().get(i).getTopblanktype().equals("2")){
-                    Picasso.with(context).load(response.getResult().getCardlist().get(i).getData().get(0).getImageurl()).into(imageSmallBar);
+                    Picasso.with(context).load(response.getResult().getCardlist().get(i).getData().get(0).getImageurl())
+                            .placeholder(R.mipmap.ahlib_carback).error(R.mipmap.ahlib_carback).into(imageSmallBar);
                 }
             }
 
@@ -199,7 +200,8 @@ public class DiscoverFragment extends BaseFragment{
             }
 
             if (response.getResult().getCardlist().get(i).getDescription().equals("文字滚动链")) {
-                Picasso.with(context).load(response.getResult().getCardlist().get(i).getImageurl()).into(mIvTextScoll);
+                Picasso.with(context).load(response.getResult().getCardlist().get(i).getImageurl())
+                        .placeholder(R.mipmap.ahlib_carback).error(R.mipmap.ahlib_carback).into(mIvTextScoll);
             }
 
             if (response.getResult().getCardlist().get(i).getDescription().equals("业务入口")) {
@@ -208,7 +210,8 @@ public class DiscoverFragment extends BaseFragment{
             }
 
             if (response.getResult().getCardlist().get(i).getDescription().equals("单帧大号横栏")) {
-                Picasso.with(context).load(response.getResult().getCardlist().get(i).getData().get(0).getImageurl()).into(ivBigImage);
+                Picasso.with(context).load(response.getResult().getCardlist().get(i).getData().get(0).getImageurl())
+                        .placeholder(R.mipmap.ahlib_carback).error(R.mipmap.ahlib_carback).into(ivBigImage);
             }
 
             if (response.getResult().getCardlist().get(i).getDescription().equals("焦点图")) {

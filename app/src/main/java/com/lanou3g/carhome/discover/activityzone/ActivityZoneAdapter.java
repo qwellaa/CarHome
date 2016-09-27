@@ -42,7 +42,8 @@ public class ActivityZoneAdapter extends RecyclerView.Adapter<ActivityZoneAdapte
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        Picasso.with(context).load(bean.getResult().getCardlist().get(id).getData().get(position).getImageurl()).into(holder.image);
+        Picasso.with(context).load(bean.getResult().getCardlist().get(id).getData().get(position).getImageurl())
+                .placeholder(R.mipmap.ahlib_carback).error(R.mipmap.ahlib_carback).into(holder.image);
     }
 
     @Override

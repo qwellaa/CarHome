@@ -3,10 +3,12 @@
               android:orientation="vertical"
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
-    android:gravity="center">
+    android:gravity="center"
+    android:background="#80b5b5b5">
     <ImageView
+        android:layout_margin="1dp"
         android:layout_width="wrap_content"
-        android:layout_height="120dp"
-        android:background="@mipmap/ic_launcher"
-        android:id="@+id/item_discover_activity_zone_image"/>
+        android:layout_height="100dp"
+        android:id="@+id/item_discover_activity_zone_image"
+        android:scaleType="fitXY"/>
 </LinearLayout>

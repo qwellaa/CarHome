@@ -54,7 +54,8 @@ public class ForMeRecommedAdapter extends RecyclerView.Adapter<ForMeRecommedAdap
             holder.tvOrPrice.setText(bean.getResult().getCardlist().get(id).getData().get(position).getPrice());
         }
 
-        Picasso.with(context).load(bean.getResult().getCardlist().get(id).getData().get(position).getImageurl()).into(holder.image);
+        Picasso.with(context).load(bean.getResult().getCardlist().get(id).getData().get(position).getImageurl())
+                .placeholder(R.mipmap.ahlib_carback).error(R.mipmap.ahlib_carback).into(holder.image);
     }
 
     @Override
