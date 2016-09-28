@@ -4,8 +4,10 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
-    <TextView
+    <WebView
+        android:id="@+id/wv_use_car"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="二手车"/>
+        android:background="#FFFFFF">
+    </WebView>
 </LinearLayout>
