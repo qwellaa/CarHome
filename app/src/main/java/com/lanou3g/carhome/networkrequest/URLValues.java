@@ -108,6 +108,9 @@ public final class URLValues {
     public static final String POPULAR_BRAND = "http://183.232.160.141/cars.app.autohome.com.cn/dealer_v6.0.0/dealer/hotbrands-pm2.json ";
     // 主打车
     public static final String MAIN_CAR_URL = "http://223.99.255.20/adnewnc.app.autohome.com.cn/advert_v7.0.0/ad/infoad.ashx?appid=2&platform=1&version=7.0.0&networkid=0&adtype=1&provinceid=0&lng=0.000000&lat=0.000000&pageindex=1&deviceid=021676cd548e5cf2b6149c916a767228fac74da0&idfa=6C0EC63C-DC2C-4CD5-B819-6E347AE4505E&devicebrand=apple&devicemodel=iPhone&gps_city=0&pageid=021676cd548e5cf2b6149c916a767228fac74da01474942793872&isretry=0";
+    // ABCD找车
+    public static final String ALL_CAR_URL = "http://223.99.255.20/cars.app.autohome.com.cn/cars_v5.7.0/cars/brands-pm2-ts635966571635589297.json";
+
 
     // 整个 第四页
     public static final String GOODS_LIST_URL = "http://223.99.255.20/mobile.app.autohome.com.cn/discover_v7.0.0/mobile/getcardlist.ashx?a=2&pm=1&v=7.0.0&uid=&deviceid=021676cd548e5cf2b6149c916a767228fac74da0&pid=0&cid=0&state=1&pageindex=1&pagesize=20&lat=0.000000&lng=0.000000&hid=";

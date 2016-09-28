@@ -15,7 +15,7 @@
     </FrameLayout>
     <RadioGroup
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="68dp"
         android:orientation="horizontal">
         <RadioButton
             android:id="@+id/rbtn_recommended"

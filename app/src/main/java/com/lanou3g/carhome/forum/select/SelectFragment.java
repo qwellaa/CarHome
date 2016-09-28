@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -36,7 +37,7 @@ public class SelectFragment extends BaseFragment implements View.OnClickListener
     private Button btnMo;
     private Button btnChoseCare;
     private Button btnGirlChose;
-    private Button btnSr;
+    private LinearLayout llSr;
     private Button btnTfHour;
     private Button btnRedPeople;
     private Button btnConversion;
@@ -59,7 +60,7 @@ public class SelectFragment extends BaseFragment implements View.OnClickListener
         btnGirlChose = bindView(R.id.btn_headview_selection_girlchose, selectView);
         btnRedPeople = bindView(R.id.btn_headview_selection_redpeople, selectView);
         btnConversion = bindView(R.id.btn_headview_selection_conversion, selectView);
-        btnSr = bindView(R.id.btn_headview_selection_sr, selectView);
+        llSr = bindView(R.id.ll_headview_selection_sr, selectView);
         btnTfHour = bindView(R.id.btn_headview_selection_tfhour, selectView);
 
         ListView listView = plvSelection.getRefreshableView();
@@ -101,7 +102,7 @@ public class SelectFragment extends BaseFragment implements View.OnClickListener
         btnGirlChose.setOnClickListener(this);
         btnConversion.setOnClickListener(this);
         btnRedPeople.setOnClickListener(this);
-        btnSr.setOnClickListener(this);
+        llSr.setOnClickListener(this);
         btnTfHour.setOnClickListener(this);
     }
 
@@ -206,7 +207,7 @@ public class SelectFragment extends BaseFragment implements View.OnClickListener
                 intent.putExtra("title", strRedPeople);
                 startActivity(intent);
                 break;
-            case R.id.btn_headview_selection_sr:
+            case R.id.ll_headview_selection_sr:
                 intent.setClass(getActivity(), SelectionAllActivity.class);
                 startActivity(intent);
                 break;
