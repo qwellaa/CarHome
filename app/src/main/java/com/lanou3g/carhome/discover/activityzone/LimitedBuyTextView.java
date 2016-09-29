@@ -2,10 +2,10 @@ package com.lanou3g.carhome.discover.activityzone;
 
 import android.content.Context;
 import android.os.CountDownTimer;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
+
 import com.lanou3g.carhome.R;
 
 import java.text.ParseException;
@@ -33,8 +33,6 @@ public class LimitedBuyTextView {
     public LimitedBuyTextView(Context context, String time) {
         this.context = context;
         this.time = time;
-        Log.d("LimitedBuyTextView", time);
-        Log.d("LimitedBuyTextView", this.time);
     }
 
     public View initTime() {
@@ -47,7 +45,6 @@ public class LimitedBuyTextView {
             public void onTick(long millisUntilFinished) {
                 nowL = System.currentTimeMillis();
                 remainderL = finishL - nowL;
-                Log.d("LimitedBuyTextView", "finishL:" + finishL);
                 int remainderDay = (int) (remainderL / 1000 / 60 / 60 / 24);
                 int remainderHour = (int) (remainderL / 1000 / 60 / 60 % 24);
                 int remainderMin = (int) (remainderL / 1000 / 60 % 60);

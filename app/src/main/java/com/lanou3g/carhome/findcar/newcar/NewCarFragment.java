@@ -1,6 +1,10 @@
 package com.lanou3g.carhome.findcar.newcar;
 
 import android.graphics.Color;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +18,10 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.lanou3g.carhome.R;
 import com.lanou3g.carhome.baseclass.BaseFragment;
+import com.lanou3g.carhome.findcar.newcar.maincar.MainCarAdapter;
+import com.lanou3g.carhome.findcar.newcar.maincar.MainCarBean;
+import com.lanou3g.carhome.findcar.newcar.popularbrand.PopularBrandAdapter;
+import com.lanou3g.carhome.findcar.newcar.popularbrand.PopularBrandBean;
 import com.lanou3g.carhome.networkrequest.GsonRequest;
 import com.lanou3g.carhome.networkrequest.URLValues;
 import com.lanou3g.carhome.networkrequest.VolleySingleton;
@@ -34,12 +42,15 @@ public class NewCarFragment extends BaseFragment {
     private ListView lv;
     private TextView tvShow;
     private NewCarAdapter adapter;
-    private String[] indexStr = {"A", "B", "C", "D", "F", "G", "H",
+    private String[] indexStr = {"选", "降", "热", "主", "史", "A", "B", "C", "D", "F", "G", "H",
             "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "W", "X", "Y", "Z"};
     private List<CarNameBean> nameList = null;
     private List<CarNameBean> newNameList = new ArrayList<CarNameBean>();
     private int height;// 字体高度
     private boolean flag = false;
+    private PopularBrandAdapter brandAdapter;
+    private MainCarAdapter mainCarAdapter;
+
 
     @Override
     protected int setLayout() {
@@ -53,18 +64,21 @@ public class NewCarFragment extends BaseFragment {
         lv = bindView(R.id.lv_new_car);
         tvShow = bindView(R.id.tv_new_car);
         tvShow.setVisibility(View.GONE);
-        nameList = new ArrayList<>();
 
-        initSendInterent();
+        initHeadView();
     }
 
     @Override
     protected void initData() {
+
+        nameList = new ArrayList<>();
+        initSendInterent();
+
         ViewTreeObserver observer = layoutIndex.getViewTreeObserver();
         observer.addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener() {
             @Override
             public boolean onPreDraw() {
-                /**************************/
+                /********* 这里要细看 **************/
                 if (!flag) {
                     height = layoutIndex.getMeasuredHeight() / indexStr.length;
                     getIndexView();
@@ -73,6 +87,62 @@ public class NewCarFragment extends BaseFragment {
                 return true;
             }
         });
+    }
+
+    private void initHeadView() {
+        View view = LayoutInflater.from(context).inflate(R.layout.headview_new_car, null);
+        RecyclerView rvHot = (RecyclerView) view.findViewById(R.id.rv_hot_headview_new_car);
+        RecyclerView rvMain = (RecyclerView) view.findViewById(R.id.rv_main_headview_new_car);
+
+        lv.addHeaderView(view);
+
+        brandAdapter = new PopularBrandAdapter(context);
+        rvHot.setAdapter(brandAdapter);
+        GridLayoutManager manager = new GridLayoutManager(context, 5);
+        rvHot.setLayoutManager(manager);
+
+        mainCarAdapter = new MainCarAdapter(context);
+        rvMain.setAdapter(mainCarAdapter);
+        LinearLayoutManager carManager = new LinearLayoutManager(context);
+        carManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+        rvMain.setLayoutManager(carManager);
+
+        initInterentBrand();
+        initInterentMain();
+    }
+
+    private void initInterentMain() {
+        GsonRequest<MainCarBean> gsonRequestMain = new GsonRequest<MainCarBean>(URLValues.MAIN_CAR_URL,
+                MainCarBean.class,
+                new Response.Listener<MainCarBean>() {
+                    @Override
+                    public void onResponse(MainCarBean response) {
+                        mainCarAdapter.setBean(response);
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        });
+        VolleySingleton.getInstance().addRequest(gsonRequestMain);
+    }
+
+    private void initInterentBrand() {
+        GsonRequest<PopularBrandBean> gsonRequestBrand = new GsonRequest<PopularBrandBean>(URLValues.POPULAR_BRAND,
+                PopularBrandBean.class,
+                new Response.Listener<PopularBrandBean>() {
+                    @Override
+                    public void onResponse(PopularBrandBean response) {
+                        brandAdapter.setBean(response);
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        });
+        VolleySingleton.getInstance().addRequest(gsonRequestBrand);
     }
 
     private void initSendInterent() {
