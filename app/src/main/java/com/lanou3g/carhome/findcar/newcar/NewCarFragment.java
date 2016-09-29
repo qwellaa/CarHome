@@ -34,7 +34,7 @@ public class NewCarFragment extends BaseFragment {
     private ListView lv;
     private TextView tvShow;
     private NewCarAdapter adapter;
-    private String[] indexStr = {"选", "热", "主", "史", "A", "B", "C", "D", "F", "G", "H",
+    private String[] indexStr = {"A", "B", "C", "D", "F", "G", "H",
             "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "W", "X", "Y", "Z"};
     private List<CarNameBean> nameList = null;
     private List<CarNameBean> newNameList = new ArrayList<CarNameBean>();
@@ -80,15 +80,15 @@ public class NewCarFragment extends BaseFragment {
                 NewCarBean.class,
                 new Response.Listener<NewCarBean>() {
 
-                    private CarNameBean nameBean1;
+                    private CarNameBean nameBean;
 
                     @Override
                     public void onResponse(NewCarBean response) {
                         for (int i = 0; i < response.getResult().getBrandlist().size(); i++) {
                             for (int j = 0; j < response.getResult().getBrandlist().get(i).getList().size(); j++) {
-                                nameBean1 = new CarNameBean(response.getResult().getBrandlist().get(i)
-                                        .getList().get(j).getName());
-                                nameList.add(nameBean1);
+                                nameBean = new CarNameBean(response.getResult().getBrandlist().get(i).getList().get(j).getName());
+                                nameBean.setImageUrl(response.getResult().getBrandlist().get(i).getList().get(j).getImgurl());
+                                nameList.add(nameBean);
                             }
                         }
                         String[] allNames = sortIndex(nameList);
@@ -122,6 +122,7 @@ public class NewCarFragment extends BaseFragment {
                     if (allNames[i].equals(nameList.get(j).getPinYinName())) {
                         CarNameBean p = new CarNameBean(nameList.get(j).getName(), nameList
                                 .get(j).getPinYinName());
+                        p.setImageUrl(nameList.get(j).getImageUrl());
                         newNameList.add(p);
                     }
                 }

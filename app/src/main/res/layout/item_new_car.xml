@@ -3,12 +3,16 @@
               android:orientation="horizontal"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
-    android:background="#FFFFFF">
+    android:background="#FFFFFF"
+    android:gravity="center_vertical">
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/iv_item_new_car"/>
     <TextView
+        android:gravity="center_vertical"
+        android:text="sad"
+        android:layout_marginLeft="10dp"
         android:layout_weight="1"
         android:layout_width="0dp"
         android:layout_height="wrap_content"

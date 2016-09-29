@@ -5,9 +5,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.lanou3g.carhome.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -21,14 +23,16 @@ public class NewCarAdapter extends BaseAdapter {
     private List<CarNameBean> list;
     private ViewHolder viewHolder;
 
+
     public NewCarAdapter(Context context, List<CarNameBean> list) {
         this.context = context;
         this.list = list;
     }
 
+
     @Override
     public int getCount() {
-        return list.size();
+        return list == null ? 0 : list.size();
     }
 
     @Override
@@ -59,14 +63,13 @@ public class NewCarAdapter extends BaseAdapter {
         } else {
             convertView = LayoutInflater.from(context).inflate(R.layout.item_new_car, null);
             viewHolder.itemTv = (TextView) convertView.findViewById(R.id.tv_item_new_car);
+            viewHolder.itemIv = (ImageView) convertView.findViewById(R.id.iv_item_new_car);
         }
         if (item.length() == 1) {
             viewHolder.indexTv.setText(list.get(position).getName());
         } else {
-
-
             viewHolder.itemTv.setText(list.get(position).getName());
-
+            Picasso.with(context).load(list.get(position).getImageUrl()).into(viewHolder.itemIv);
         }
         return convertView;
     }
@@ -74,6 +77,7 @@ public class NewCarAdapter extends BaseAdapter {
     private class ViewHolder {
         private TextView indexTv;
         private TextView itemTv;
+        private ImageView itemIv;
     }
 
 }
