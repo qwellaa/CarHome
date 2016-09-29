@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="horizontal"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+    <TextView
+        android:background="@drawable/shape_black"
+        android:id="@+id/limited_times_day"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:gravity="center"
+        android:textColor="#ffffff"
+        />
+
+    <TextView
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textColor="#414348"
+        android:text="天"/>
+
+    <TextView
+        android:id="@+id/limited_times_hour"
+        android:gravity="center"
+        android:background="@drawable/shape_black"
+        android:textColor="#ffffff"
+        android:layout_width="25dp"
+        android:layout_height="25dp"/>
+
+    <TextView
+        android:text=":"
+        android:textSize="20sp"
+        android:textColor="#414348"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/limited_times_minute"
+        android:gravity="center"
+        android:background="@drawable/shape_black"
+        android:textColor="#ffffff"
+        android:layout_width="25dp"
+        android:layout_height="25dp"/>
+    <TextView
+        android:text=":"
+        android:textSize="20sp"
+        android:textColor="#414348"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:id="@+id/limited_times_seconds"
+        android:gravity="center"
+        android:background="@drawable/shape_black"
+        android:textColor="#ffffff"
+        android:layout_width="25dp"
+        android:layout_height="25dp"/>
+</LinearLayout>

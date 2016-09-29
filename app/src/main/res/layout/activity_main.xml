@@ -10,7 +10,7 @@
     <FrameLayout
         android:id="@+id/replace_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_weight="1">
     </FrameLayout>
     <RadioGroup
@@ -19,35 +19,35 @@
         android:orientation="horizontal">
         <RadioButton
             android:id="@+id/rbtn_recommended"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:button="@null"
             android:background="@drawable/recommend"/>
         <RadioButton
             android:id="@+id/rbtn_forum"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:button="@null"
             android:background="@drawable/forum"/>
         <RadioButton
             android:id="@+id/rbtn_findcar"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:button="@null"
             android:background="@drawable/findcar"/>
         <RadioButton
             android:id="@+id/rbtn_discover"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:button="@null"
             android:background="@drawable/discover"/>
         <RadioButton
             android:id="@+id/rbtn_personal"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:button="@null"

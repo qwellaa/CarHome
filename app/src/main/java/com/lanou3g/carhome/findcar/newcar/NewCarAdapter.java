@@ -69,7 +69,8 @@ public class NewCarAdapter extends BaseAdapter {
             viewHolder.indexTv.setText(list.get(position).getName());
         } else {
             viewHolder.itemTv.setText(list.get(position).getName());
-            Picasso.with(context).load(list.get(position).getImageUrl()).into(viewHolder.itemIv);
+            Picasso.with(context).load(list.get(position).getImageUrl())
+                    .placeholder(R.mipmap.ahlib_carback).error(R.mipmap.ahlib_carback).into(viewHolder.itemIv);
         }
         return convertView;
     }

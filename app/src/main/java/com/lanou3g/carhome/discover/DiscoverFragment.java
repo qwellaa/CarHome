@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -18,6 +19,7 @@ import com.handmark.pulltorefresh.library.PullToRefreshListView;
 import com.lanou3g.carhome.R;
 import com.lanou3g.carhome.baseclass.BaseFragment;
 import com.lanou3g.carhome.discover.activityzone.ActivityZoneAdapter;
+import com.lanou3g.carhome.discover.activityzone.LimitedBuyTextView;
 import com.lanou3g.carhome.discover.businessenty.BusinessAdapter;
 import com.lanou3g.carhome.discover.formerecommend.ForMeRecommedAdapter;
 import com.lanou3g.carhome.discover.goodslist.GoodsListAdapter;
@@ -61,6 +63,7 @@ public class DiscoverFragment extends BaseFragment{
     private BusinessAdapter businessAdapter;
     private ImageView ivBigImage;
     private Banner banner;
+    private LinearLayout llDate;
 
     @Override
     protected int setLayout() {
@@ -191,6 +194,9 @@ public class DiscoverFragment extends BaseFragment{
                 mSaleAdapter.setId(i);
                 mSaleAdapter.setBean(response);
                 mTVtitleServicrZone.setText(response.getResult().getCardlist().get(i).getTitle());
+                LimitedBuyTextView limited = new LimitedBuyTextView(context, response.getResult().getCardlist().get(i)
+                        .getRightbtn().getData());
+                llDate.addView(limited.initTime());
             }
 
             if (response.getResult().getCardlist().get(i).getDescription().equals("田字小号专区")) {
@@ -253,6 +259,7 @@ public class DiscoverFragment extends BaseFragment{
         View viewServiceZone = LayoutInflater.from(context).inflate(R.layout.headview_discover_service_zone, null);
         mServiceZoneRv = (RecyclerView) viewServiceZone.findViewById(R.id.rv_headview_service_zone);
         mTVtitleServicrZone = (TextView) viewServiceZone.findViewById(R.id.tv_heandview_title_service_zone);
+        llDate = (LinearLayout) viewServiceZone.findViewById(R.id.ll_headview_discover_service_zone);
 
         View viewTextScoll = LayoutInflater.from(context).inflate(R.layout.headview_text_scoll, null);
         mIvTextScoll = (ImageView) viewTextScoll.findViewById(R.id.iv_headview_text_scoll);

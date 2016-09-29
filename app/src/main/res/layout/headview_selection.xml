@@ -11,7 +11,7 @@
             android:id="@+id/ll_headview_selection_sr">
             <TextView
                 android:layout_weight="1"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="精选推荐"
                 android:textColor="#000000"
@@ -40,7 +40,7 @@
             android:layout_margin="3dp">
             <Button
                 android:layout_weight="1"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="媳妇当车模"
                 android:textColor="#3F89FE"
@@ -49,7 +49,7 @@
             <Button
                 android:layout_weight="1"
                 android:layout_marginLeft="10dp"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="美人'记'"
                 android:textColor="#FF8000"
@@ -57,7 +57,7 @@
                 android:background="@drawable/orange_btn_bg"/>
             <Button
                 android:layout_weight="1"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="高端阵地"
                 android:layout_marginLeft="10dp"
@@ -66,7 +66,7 @@
                 android:background="@drawable/blue_btn_bg"/>
             <Button
                 android:layout_weight="1"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="论坛红人馆"
                 android:layout_marginLeft="10dp"

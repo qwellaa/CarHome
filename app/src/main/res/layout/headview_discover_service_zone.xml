@@ -12,16 +12,23 @@
         android:layout_width="match_parent"
         android:layout_height="8dp"
         android:background="#50b5b5b5"/>
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:padding="10dp">
         <TextView
-            android:layout_width="0dp"
-            android:layout_weight="1"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="15sp"
-            android:padding="2dp"
+            android:padding="5dp"
             android:id="@+id/tv_heandview_title_service_zone"/>
-    </LinearLayout>
+        <LinearLayout
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:id="@+id/ll_headview_discover_service_zone">
+        </LinearLayout>
+    </RelativeLayout>
 </LinearLayout>
