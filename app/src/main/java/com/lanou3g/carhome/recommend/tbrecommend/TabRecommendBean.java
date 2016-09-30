@@ -1,11 +1,11 @@
-package com.lanou3g.carhome.recommend;
+package com.lanou3g.carhome.recommend.tbrecommend;
 
 import java.util.List;
 
 /**
  *
  */
-public class RecommendBean {
+public class TabRecommendBean {
 
 
     /**

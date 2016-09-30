@@ -1,24 +1,16 @@
 package com.lanou3g.carhome.recommend;
 
 import android.content.Intent;
-import android.view.LayoutInflater;
+import android.graphics.Color;
+import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ListView;
-import android.widget.Toast;
 
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.handmark.pulltorefresh.library.PullToRefreshBase;
-import com.handmark.pulltorefresh.library.PullToRefreshListView;
 import com.lanou3g.carhome.R;
 import com.lanou3g.carhome.baseclass.BaseFragment;
-import com.lanou3g.carhome.networkrequest.GsonRequest;
-import com.lanou3g.carhome.networkrequest.URLValues;
-import com.lanou3g.carhome.networkrequest.VolleySingleton;
 import com.lanou3g.carhome.search.SearchActivity;
-import com.youth.banner.Banner;
-import com.youth.banner.BannerConfig;
 
 import java.util.ArrayList;
 
@@ -28,10 +20,11 @@ import java.util.ArrayList;
 public class RecommendFragment extends BaseFragment implements View.OnClickListener {
 
 
-    private PullToRefreshListView plvRecommend;
-    private RecommendAdapter adapter;
-    private Banner banner;
+
+
     private Button btnSearch;
+    private TabLayout tbRecommend;
+    private ViewPager vpRecommend;
 
     @Override
     protected int setLayout() {
@@ -40,68 +33,37 @@ public class RecommendFragment extends BaseFragment implements View.OnClickListe
 
     @Override
     protected void initView() {
-        plvRecommend = bindView(R.id.pLv_recommend);
+
         btnSearch = bindView(R.id.ibtn_search);
+        tbRecommend = bindView(R.id.tb_recommend);
+        vpRecommend = bindView(R.id.vp_recommend);
 
-        View bannerView = LayoutInflater.from(getContext()).inflate(R.layout.banner_recommend, null);
-
-        banner = new Banner(context);
-        banner = bindView(R.id.banner, bannerView);
-
-        ListView listView = plvRecommend.getRefreshableView();
-        listView.addHeaderView(bannerView);
     }
 
     @Override
     protected void initData() {
         btnSearch.setOnClickListener(this);
 
-        plvRecommend.setMode(PullToRefreshBase.Mode.BOTH);
-        plvRecommend.setOnRefreshListener(new PullToRefreshBase.OnRefreshListener2<ListView>() {
-            // 下拉刷新
-            @Override
-            public void onPullDownToRefresh(PullToRefreshBase<ListView> refreshView) {
-                sendInterent();
-                Toast.makeText(context, "刷新成功", Toast.LENGTH_SHORT).show();
-            }
+        TabFragmentBean tabFragmentBean = new TabFragmentBean();
+        ArrayList<Fragment> fragments = tabFragmentBean.getFragments();
+        TabTitlesBean tabTitlesBean = new TabTitlesBean();
+        ArrayList<String> titles = tabTitlesBean.getTitles();
 
-            // 上拉加载
-            @Override
-            public void onPullUpToRefresh(PullToRefreshBase<ListView> refreshView) {
 
-            }
-        });
-        adapter = new RecommendAdapter(context);
-        plvRecommend.setAdapter(adapter);
-        sendInterent();
+        RecommendAdapter adapter = new RecommendAdapter(getChildFragmentManager(), context);
+        adapter.setFragments(fragments);
+        adapter.setTitles(titles);
+
+        vpRecommend.setAdapter(adapter);
+        tbRecommend.setupWithViewPager(vpRecommend);
+
+        // 更改tab 下滑线
+        tbRecommend.setSelectedTabIndicatorColor(Color.BLACK);
+        // 给tab文字 加选中颜色
+        tbRecommend.setTabTextColors(Color.GRAY, Color.BLACK);
     }
 
-    private void sendInterent() {
-        GsonRequest<RecommendBean> gsonRequest = new GsonRequest<RecommendBean>(URLValues.NEW_URL,
-                RecommendBean.class,
-                new Response.Listener<RecommendBean>() {
-                    @Override
-                    public void onResponse(RecommendBean response) {
-                        adapter.setBean(response);
-                        plvRecommend.onRefreshComplete();
-                        ArrayList<String> images = new ArrayList<>();
-                        for (int i = 0; i < response.getResult().getFocusimg().size(); i++) {
-                            images.add(response.getResult().getFocusimg().get(i).getImgurl());
-                        }
 
-                        banner.setBannerStyle(BannerConfig.CIRCLE_INDICATOR);
-                        banner.setIndicatorGravity(BannerConfig.RIGHT);
-                        banner.setImages(images);
-
-                    }
-                }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Toast.makeText(context, "网络请求失败", Toast.LENGTH_SHORT).show();
-            }
-        });
-        VolleySingleton.getInstance().addRequest(gsonRequest);
-    }
 
     @Override
     public void onClick(View view) {
