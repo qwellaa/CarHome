@@ -27,6 +27,7 @@ public class TabRecommendFragment extends BaseFragment{
     private PullToRefreshListView plvRecommend;
     private TabRecommendAdapter adapter;
     private Banner banner;
+    
     @Override
     protected int setLayout() {
         return R.layout.fragment_tb_recommend;

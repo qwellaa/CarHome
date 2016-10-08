@@ -14,11 +14,31 @@ public final class URLValues {
     // 第一页 推荐
     public static final String NEW_URL = "http://app.api.autohome.com.cn/autov4.8.8/news/newslist-pm1-c0-nt0-p1-s30-l0.json";
     // 优创
-    public static final String U_Micro_URL = "http://news.app.autohome.com.cn/news_v6.1.0/newspf/NPNewsList.ashx?a=2&pm=2&v=6.1.0&au=&type=3&lastid=&lastuid=0&size=30";
-
+    public static final String U_MICRO_URL = "http://news.app.autohome.com.cn/news_v6.1.0/newspf/NPNewsList.ashx?a=2&pm=2&v=6.1.0&au=&type=3&lastid=&lastuid=0&size=30";
+    // 说客
+    public static final String LOBBYISTS_URL = "http://app.api.autohome.com.cn/autov4.8.8/news/shuokelist-pm1-s30-lastid0.json";
+    // 视频
+    public static final String VIDEO_URL = "http://app.api.autohome.com.cn/autov4.8.8/news/videolist-pm1-vt0-s30-lastid0.json";
+    // 快报
+    public static final String LETTERS_URL = "http://app.api.autohome.com.cn/autov4.8.8/news/fastnewslist-pm1-b0-l0-s20-lastid0.json";
+    // 行情
+    public static final String THE_MARKET_URL = "http://app.api.autohome.com.cn/autov4.8.8/news/newslist-pm1-c110100-nt2-p1-s30-l0.json";
+    // 新闻
+    public static final String THE_NEWS_URL = " http://app.api.autohome.com.cn/autov4.8.8/news/newslist-pm1-c0-nt1-p1-s30-l0.json";
+    // 评测
+    public static final String REVIEW_URL = "http://app.api.autohome.com.cn/autov4.8.8/news/newslist-pm1-c0-nt3-p1-s30-l0.json";
+    // 导购
+    public static final String SHOPPERS_URL = "http://app.api.autohome.com.cn/autov4.8.8/news/newslist-pm1-c0-nt60-p1-s30-l0.json";
+    // 用车
+    public static final String THE_CAR_URL = "http://app.api.autohome.com.cn/autov4.8.8/news/newslist-pm1-c0-nt82-p1-s30-l0.json";
+    // 技术
+    public static final String TECHNOLOGY_URL = "http://app.api.autohome.com.cn/autov4.8.8/news/newslist-pm1-c0-nt102-p1-s30-l0.json";
+    // 文化
+    public static final String CULTURE_URL = "http://app.api.autohome.com.cn/autov4.8.8/news/newslist-pm1-c0-nt97-p1-s30-l0.json";
+    // 改装
+    public static final String A_MODIFIED_URL = "http://app.api.autohome.com.cn/autov4.8.8/news/newslist-pm1-c0-nt107-p1-s30-l0.json";
 
     // 第二页 论坛
-
     public static final String SELECTION_URL = "http://223.99.255.20/clubnc.app.autohome.com.cn/club_v7.0.5/club/jingxuantopic.ashx?platud=2&categoryid=0&pageindex=1&pagesize=30&devicetype=android.1501_M02&deviceid=860954030358581&userid=0&operation=1&netstate=0&gps=38.889726%2C121.550943";
     // 精选
 //    public static final String SELECTION_URL = "http://app.api.autohome.com.cn/autov4.8.8/club/jingxuantopic-pm1-c0-p1-s30.json";
