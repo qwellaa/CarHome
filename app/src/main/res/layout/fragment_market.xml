@@ -4,16 +4,16 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent">
     <TextView
-        android:id="@+id/tv_all_video"
+        android:id="@+id/tv_address_market"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="全部"
+        android:text="北京"
         android:textColor="#000"
         android:textSize="20sp"
         android:padding="10dp"
         android:drawableRight="@drawable/btn_up_down"/>
     <com.handmark.pulltorefresh.library.PullToRefreshListView
-        android:id="@+id/pLv_recommend_video"
+        android:id="@+id/pLv_recommend_market"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent">
     </com.handmark.pulltorefresh.library.PullToRefreshListView>

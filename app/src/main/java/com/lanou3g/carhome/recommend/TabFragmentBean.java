@@ -2,6 +2,7 @@ package com.lanou3g.carhome.recommend;
 
 import android.support.v4.app.Fragment;
 
+import com.lanou3g.carhome.recommend.tabmarket.TabMarketFragment;
 import com.lanou3g.carhome.recommend.tblobbyists.TabLobbyistsFragment;
 import com.lanou3g.carhome.recommend.tbrecommend.TabRecommendFragment;
 import com.lanou3g.carhome.recommend.tbumicro.TabUMicroFragment;
@@ -26,7 +27,7 @@ public class TabFragmentBean {
         fragments.add(new TabLobbyistsFragment());
         fragments.add(new TabVideoFragment());
         fragments.add(new TabLobbyistsFragment());
-        fragments.add(new TabVideoFragment());
+        fragments.add(new TabMarketFragment());
         fragments.add(new TabLobbyistsFragment());
         fragments.add(new TabLobbyistsFragment());
         fragments.add(new TabLobbyistsFragment());

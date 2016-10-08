@@ -1,4 +1,4 @@
-package com.lanou3g.carhome.recommend.tbvideo;
+package com.lanou3g.carhome.recommend.tabmarket;
 
 import android.widget.ListView;
 import android.widget.TextView;
@@ -16,27 +16,27 @@ import com.lanou3g.carhome.networkrequest.VolleySingleton;
 /**
  *
  */
-public class TabVideoFragment extends BaseFragment{
+public class TabMarketFragment extends BaseFragment{
 
-    private PullToRefreshListView plvVideo;
-    private TextView tvAll;
-    private TabVideoAdapter adapter;
+    private PullToRefreshListView plvMarket;
+    private TextView tvAddress;
+    private TabMarketAdapter adapter;
 
     @Override
     protected int setLayout() {
-        return R.layout.fragment_video;
+        return R.layout.fragment_market;
     }
 
     @Override
     protected void initView() {
-        tvAll = bindView(R.id.tv_all_video);
-        plvVideo = bindView(R.id.pLv_recommend_video);
+        tvAddress = bindView(R.id.tv_address_market);
+        plvMarket = bindView(R.id.pLv_recommend_market);
     }
 
     @Override
     protected void initData() {
-        plvVideo.setMode(PullToRefreshBase.Mode.BOTH);
-        plvVideo.setOnRefreshListener(new PullToRefreshBase.OnRefreshListener2<ListView>() {
+        plvMarket.setMode(PullToRefreshBase.Mode.BOTH);
+        plvMarket.setOnRefreshListener(new PullToRefreshBase.OnRefreshListener2<ListView>() {
             @Override
             public void onPullDownToRefresh(PullToRefreshBase<ListView> refreshView) {
                 initSendInterent();
@@ -48,20 +48,20 @@ public class TabVideoFragment extends BaseFragment{
             }
         });
 
-        adapter = new TabVideoAdapter(context);
-        plvVideo.setAdapter(adapter);
+        adapter = new TabMarketAdapter(context);
+        plvMarket.setAdapter(adapter);
         initSendInterent();
     }
 
     private void initSendInterent() {
-        GsonRequest<TabVideoBean> gsonRequest = new GsonRequest<TabVideoBean>(URLValues.VIDEO_URL,
-                TabVideoBean.class,
-                new Response.Listener<TabVideoBean>() {
+        GsonRequest<TabMarketBean> gsonRequest = new GsonRequest<TabMarketBean>(URLValues.THE_MARKET_URL,
+                TabMarketBean.class,
+                new Response.Listener<TabMarketBean>() {
                     @Override
-                    public void onResponse(TabVideoBean response) {
+                    public void onResponse(TabMarketBean response) {
                         adapter.setBean(response);
 
-                        plvVideo.onRefreshComplete();
+                        plvMarket.onRefreshComplete();
                     }
                 }, new Response.ErrorListener() {
             @Override
