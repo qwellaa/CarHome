@@ -12,7 +12,10 @@ public final class URLValues {
     public static final String WELCOME_URL = "http://adnewnc.app.autohome.com.cn/advert_v7.0.0/ad/startrunningad.ashx?appid=2&platform=1&version=7.0.0&networkid=0&idfa=6C0EC63C-DC2C-4CD5-B819-6E347AE4505E&deviceid=021676cd548e5cf2b6149c916a767228fac74da0&mac=0&size=320_568&cityid=0&devicebrand=apple&devicemodel=iPhone&gps_city=0&lng=0.000000&lat=0.000000&pageid=021676cd548e5cf2b6149c916a767228fac74da01474942181154&isretry=0";
 
     // 第一页 推荐
-    public static final String NEW_URL="http://app.api.autohome.com.cn/autov4.8.8/news/newslist-pm1-c0-nt0-p1-s30-l0.json";
+    public static final String NEW_URL = "http://app.api.autohome.com.cn/autov4.8.8/news/newslist-pm1-c0-nt0-p1-s30-l0.json";
+    // 优创
+    public static final String U_Micro_URL = "http://news.app.autohome.com.cn/news_v6.1.0/newspf/NPNewsList.ashx?a=2&pm=2&v=6.1.0&au=&type=3&lastid=&lastuid=0&size=30";
+
 
     // 第二页 论坛
 
