@@ -6,9 +6,13 @@ import java.util.ArrayList;
  *
  */
 public class TabTitlesBean {
-    ArrayList<String> titles = new ArrayList<>();
 
-    public ArrayList<String> getTitles() {
+    public TabTitlesBean() {
+    }
+
+    private static final ArrayList<String> titles = new ArrayList<>();
+
+    public static final ArrayList<String> getTitles() {
         titles.add("推荐");
         titles.add("优创+");
         titles.add("说客");

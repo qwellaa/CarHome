@@ -44,10 +44,9 @@ public class RecommendFragment extends BaseFragment implements View.OnClickListe
     protected void initData() {
         btnSearch.setOnClickListener(this);
 
-        TabFragmentBean tabFragmentBean = new TabFragmentBean();
-        ArrayList<Fragment> fragments = tabFragmentBean.getFragments();
-        TabTitlesBean tabTitlesBean = new TabTitlesBean();
-        ArrayList<String> titles = tabTitlesBean.getTitles();
+
+        ArrayList<Fragment> fragments = TabFragmentBean.getFragments();
+        ArrayList<String> titles = TabTitlesBean.getTitles();
 
 
         RecommendAdapter adapter = new RecommendAdapter(getChildFragmentManager(), context);

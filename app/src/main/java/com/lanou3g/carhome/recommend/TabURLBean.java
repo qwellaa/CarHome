@@ -8,9 +8,13 @@ import java.util.ArrayList;
  *
  */
 public class TabURLBean {
-    ArrayList<String> URLArrayList = new ArrayList<>();
 
-    public ArrayList<String> getUrls() {
+    private TabURLBean(){
+
+    }
+    private static final ArrayList<String> URLArrayList = new ArrayList<>();
+
+    public static final ArrayList<String> getUrls() {
         URLArrayList.add(URLValues.NEW_URL);
         URLArrayList.add(URLValues.U_MICRO_URL);
         URLArrayList.add(URLValues.LOBBYISTS_URL);

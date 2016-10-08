@@ -5,6 +5,8 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
+import com.lanou3g.carhome.recommend.tblobbyists.TabLobbyistsFragment;
+
 import java.util.ArrayList;
 
 /**
@@ -32,7 +34,13 @@ public class RecommendAdapter extends FragmentPagerAdapter{
 
     @Override
     public Fragment getItem(int position) {
-        return fragments.get(position);
+
+        if (0 == position || 1 == position || 3 == position || 5 == position) {
+            return fragments.get(position);
+        } else {
+            TabLobbyistsFragment fragment = new TabLobbyistsFragment();
+            return fragment.newInstance(position);
+        }
     }
 
     @Override

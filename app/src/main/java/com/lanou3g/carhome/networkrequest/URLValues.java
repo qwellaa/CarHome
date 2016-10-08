@@ -24,7 +24,7 @@ public final class URLValues {
     // 行情
     public static final String THE_MARKET_URL = "http://app.api.autohome.com.cn/autov4.8.8/news/newslist-pm1-c110100-nt2-p1-s30-l0.json";
     // 新闻
-    public static final String THE_NEWS_URL = " http://app.api.autohome.com.cn/autov4.8.8/news/newslist-pm1-c0-nt1-p1-s30-l0.json";
+    public static final String THE_NEWS_URL = "http://app.api.autohome.com.cn/autov4.8.8/news/newslist-pm1-c0-nt1-p1-s30-l0.json";
     // 评测
     public static final String REVIEW_URL = "http://app.api.autohome.com.cn/autov4.8.8/news/newslist-pm1-c0-nt3-p1-s30-l0.json";
     // 导购
