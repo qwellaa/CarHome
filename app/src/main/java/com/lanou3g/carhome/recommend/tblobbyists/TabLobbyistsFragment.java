@@ -82,8 +82,7 @@ public class TabLobbyistsFragment extends BaseFragment{
                     TabLobbysitsBean tabLobbysitsBean = (TabLobbysitsBean) parent.getItemAtPosition(i);
                     urlId = tabLobbysitsBean.getResult().getList().get(i - 1).getId();
                 } else if(4 == position) {
-                    TabLettersBean lettersBean = (TabLettersBean) parent.getItemAtPosition(i);
-                    urlId = lettersBean.getResult().getList().get(i - 1).getId();
+
                 } else {
                     TabNewsBean newsBean = (TabNewsBean) parent.getItemAtPosition(i);
                     urlId = newsBean.getResult().getNewslist().get(i - 1).getId();

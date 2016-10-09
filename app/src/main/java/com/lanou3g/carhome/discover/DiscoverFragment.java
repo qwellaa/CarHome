@@ -1,5 +1,6 @@
 package com.lanou3g.carhome.discover;
 
+import android.content.Intent;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -21,11 +22,13 @@ import com.lanou3g.carhome.baseclass.BaseFragment;
 import com.lanou3g.carhome.discover.activityzone.ActivityZoneAdapter;
 import com.lanou3g.carhome.discover.activityzone.LimitedBuyTextView;
 import com.lanou3g.carhome.discover.businessenty.BusinessAdapter;
+import com.lanou3g.carhome.discover.businessenty.OnRecyclerItemClickListener;
 import com.lanou3g.carhome.discover.formerecommend.ForMeRecommedAdapter;
 import com.lanou3g.carhome.discover.goodslist.GoodsListAdapter;
 import com.lanou3g.carhome.networkrequest.GsonRequest;
 import com.lanou3g.carhome.networkrequest.URLValues;
 import com.lanou3g.carhome.networkrequest.VolleySingleton;
+import com.lanou3g.carhome.networkrequest.WebViewActivity;
 import com.squareup.picasso.Picasso;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
@@ -118,7 +121,6 @@ public class DiscoverFragment extends BaseFragment{
         mServiceZoneRv.setAdapter(mServiceZoneAdapter);
         mRvEntry.setAdapter(businessAdapter);
 
-
         GridLayoutManager forMeManager = new GridLayoutManager(context, 2);
         rvForMe.setLayoutManager(forMeManager);
         GridLayoutManager guessMeManager = new GridLayoutManager(context, 2);
@@ -133,6 +135,56 @@ public class DiscoverFragment extends BaseFragment{
         GridLayoutManager entryManager = new GridLayoutManager(context, 5);
         mRvEntry.setLayoutManager(entryManager);
 
+        onClick();
+    }
+
+    private void onClick() {
+        businessAdapter.setOnRecyclerItemClickListener(new OnRecyclerItemClickListener() {
+            @Override
+            public void click(int postion, BusinessAdapter.ViewHolder holder) {
+                Intent intent = new Intent(getActivity(), WebViewActivity.class);
+                switch (postion) {
+                    case 9:
+                        Toast.makeText(context, "全部", Toast.LENGTH_SHORT).show();
+                        break;
+                    case 8:
+                        intent.putExtra("urlWv", URLValues.DISCOVER_CAR_VALUATION);
+                        startActivity(intent);
+                        break;
+                    case 7:
+                        intent.putExtra("urlWv", URLValues.DISCOVER_GROUP_BUY);
+                        startActivity(intent);
+                        break;
+                    case 6:
+                        Toast.makeText(context, "购车计算", Toast.LENGTH_SHORT).show();
+                        break;
+                    case 5:
+                        Toast.makeText(context, "违规查询", Toast.LENGTH_SHORT).show();
+                        break;
+                    case 4:
+                        intent.putExtra("urlWv", URLValues.DISCOVER_FIND_CAR);
+                        startActivity(intent);
+                        break;
+                    case 3:
+                        intent.putExtra("urlWv", URLValues.DISCOVER_SUBSIDY_HOME);
+                        startActivity(intent);
+                        break;
+                    case 2:
+                        intent.putExtra("urlWv", URLValues.DISCOVER_HIRE_CAR);
+                        startActivity(intent);
+                        break;
+                    case 1:
+                        intent.putExtra("urlWv", URLValues.DISCOVER_CAR_MALL);
+                        startActivity(intent);
+                        break;
+                    case 0:
+                        Toast.makeText(context, "汽车音频", Toast.LENGTH_SHORT).show();
+                        break;
+                    default:
+                        break;
+                }
+            }
+        });
     }
 
     private void initSendInterent() {

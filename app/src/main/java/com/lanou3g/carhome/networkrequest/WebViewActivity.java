@@ -40,4 +40,10 @@ public class WebViewActivity extends BaseActivity{
         WebSettings settings = wv.getSettings();
         settings.setJavaScriptEnabled(true);
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        finish();
+    }
 }

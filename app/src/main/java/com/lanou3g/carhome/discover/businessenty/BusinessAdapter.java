@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.lanou3g.carhome.R;
@@ -17,9 +18,20 @@ import com.squareup.picasso.Picasso;
  */
 public class BusinessAdapter extends RecyclerView.Adapter<BusinessAdapter.ViewHolder>{
 
+    OnRecyclerItemClickListener onRecyclerItemClickListener;
+    OnRecyclerItemLongClickListener onRecyclerItemLongClickListener;
+
     private Context context;
     private DiscoverBean bean;
     private int id;
+
+    public void setOnRecyclerItemClickListener(OnRecyclerItemClickListener onRecyclerItemClickListener) {
+        this.onRecyclerItemClickListener = onRecyclerItemClickListener;
+    }
+
+    public void setOnRecyclerItemLongClickListener(OnRecyclerItemLongClickListener onRecyclerItemLongClickListener) {
+        this.onRecyclerItemLongClickListener = onRecyclerItemLongClickListener;
+    }
 
     public BusinessAdapter(Context context) {
         this.context = context;
@@ -42,10 +54,25 @@ public class BusinessAdapter extends RecyclerView.Adapter<BusinessAdapter.ViewHo
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
+    public void onBindViewHolder(final ViewHolder holder, final int position) {
         holder.tv.setText(bean.getResult().getCardlist().get(id).getData().get(position).getTitle());
         Picasso.with(context).load(bean.getResult().getCardlist().get(id).getData().get(position).getImageurl())
                 .placeholder(R.mipmap.ahlib_carback).error(R.mipmap.ahlib_carback).into(holder.image);
+
+        holder.ll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onRecyclerItemClickListener.click(position, holder);
+            }
+        });
+
+        holder.ll.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                onRecyclerItemLongClickListener.click(position);
+                return true;
+            }
+        });
     }
 
     @Override
@@ -57,9 +84,11 @@ public class BusinessAdapter extends RecyclerView.Adapter<BusinessAdapter.ViewHo
 
         private final TextView tv;
         private final ImageView image;
+        private final LinearLayout ll;
 
         public ViewHolder(View itemView) {
             super(itemView);
+            ll = (LinearLayout) itemView.findViewById(R.id.ll_item_business_entry);
             tv = (TextView) itemView.findViewById(R.id.tv_item_business_entry);
             image = (ImageView) itemView.findViewById(R.id.iv_item_business_entry);
         }

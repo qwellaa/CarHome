@@ -35,7 +35,7 @@ public class SelectAdapter extends BaseAdapter{
 
     @Override
     public Object getItem(int i) {
-        return bean.getResult().getList().get(i);
+        return bean;
     }
 
     @Override

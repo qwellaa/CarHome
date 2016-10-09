@@ -3,6 +3,7 @@ package com.lanou3g.carhome.forum.select;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -20,6 +21,7 @@ import com.lanou3g.carhome.forum.tyfourhours.TyFourHoursActivity;
 import com.lanou3g.carhome.networkrequest.GsonRequest;
 import com.lanou3g.carhome.networkrequest.URLValues;
 import com.lanou3g.carhome.networkrequest.VolleySingleton;
+import com.lanou3g.carhome.networkrequest.WebViewActivity;
 
 import java.util.ArrayList;
 
@@ -91,6 +93,19 @@ public class SelectFragment extends BaseFragment implements View.OnClickListener
         selectionSendInterent();
 
         setBtnBackGround();
+
+        plvSelection.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                SelectBean bean = (SelectBean) parent.getItemAtPosition(position);
+                int urlId = bean.getResult().getList().get(position - 2).getTopicid();
+                String url = "http://forum.app.autohome.com.cn/autov5.0.0/forum/club/topiccontent-a2-pm2-v5.0.0-t"
+                        + urlId + "-o0-p1-s20-c1-nt0-fs0-sp0-al0-cw320.json";
+                Intent intent = new Intent(getActivity(), WebViewActivity.class);
+                intent.putExtra("urlWv", url);
+                getActivity().startActivity(intent);
+            }
+        });
     }
 
     private void onClickThis() {
