@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_margin="6dp"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <TextView
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="更多"
+            android:textColor="#000"
+            android:textSize="20sp"/>
+        <ImageButton
+            android:layout_centerVertical="true"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:id="@+id/ibtn_back_recommend_more"
+            android:background="@null"
+            android:src="@drawable/icon_close"/>
+    </RelativeLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="长按可拖动排序"
+        android:textColor="#dd000000"
+        android:padding="3dp"
+        android:background="#20b5b5b5"/>
+</LinearLayout>

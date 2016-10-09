@@ -35,7 +35,7 @@ public class TabVideoAdapter extends BaseAdapter{
 
     @Override
     public Object getItem(int position) {
-        return bean.getResult().getList().get(position);
+        return bean;
     }
 
     @Override

@@ -25,7 +25,7 @@ public class TabTitlesBean {
         titles.add("用车");
         titles.add("技术");
         titles.add("文化");
-        titles.add("改装");
+        titles.add("改装       ");
         return titles;
     }
 }

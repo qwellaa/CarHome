@@ -7,9 +7,11 @@ import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 import com.lanou3g.carhome.R;
 import com.lanou3g.carhome.baseclass.BaseFragment;
+import com.lanou3g.carhome.recommend.tabmore.TabMoreActivity;
 import com.lanou3g.carhome.search.SearchActivity;
 
 import java.util.ArrayList;
@@ -25,6 +27,7 @@ public class RecommendFragment extends BaseFragment implements View.OnClickListe
     private Button btnSearch;
     private TabLayout tbRecommend;
     private ViewPager vpRecommend;
+    private ImageButton ibtnMore;
 
     @Override
     protected int setLayout() {
@@ -37,12 +40,14 @@ public class RecommendFragment extends BaseFragment implements View.OnClickListe
         btnSearch = bindView(R.id.ibtn_search);
         tbRecommend = bindView(R.id.tb_recommend);
         vpRecommend = bindView(R.id.vp_recommend);
+        ibtnMore = bindView(R.id.ibtn_more_recommend);
 
     }
 
     @Override
     protected void initData() {
         btnSearch.setOnClickListener(this);
+        ibtnMore.setOnClickListener(this);
 
 
         ArrayList<Fragment> fragments = TabFragmentBean.getFragments();
@@ -71,6 +76,10 @@ public class RecommendFragment extends BaseFragment implements View.OnClickListe
                 Intent searchIntent = new Intent(getActivity(), SearchActivity.class);
                 searchIntent.putExtra("hint", "搜索关键词");
                 startActivity(searchIntent);
+                break;
+            case R.id.ibtn_more_recommend:
+                Intent moreIntent = new Intent(getActivity(), TabMoreActivity.class);
+                startActivity(moreIntent);
                 break;
         }
     }

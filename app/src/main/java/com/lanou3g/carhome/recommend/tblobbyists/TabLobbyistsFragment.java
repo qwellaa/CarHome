@@ -1,6 +1,9 @@
 package com.lanou3g.carhome.recommend.tblobbyists;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.android.volley.Response;
@@ -11,6 +14,7 @@ import com.lanou3g.carhome.R;
 import com.lanou3g.carhome.baseclass.BaseFragment;
 import com.lanou3g.carhome.networkrequest.GsonRequest;
 import com.lanou3g.carhome.networkrequest.VolleySingleton;
+import com.lanou3g.carhome.networkrequest.WebViewActivity;
 import com.lanou3g.carhome.recommend.TabURLBean;
 
 import java.util.List;
@@ -67,11 +71,34 @@ public class TabLobbyistsFragment extends BaseFragment{
         adapter = new TabLobbyistsAdapter(context, position);
         plvlobbyists.setAdapter(adapter);
         initSendInterent();
+
+        plvlobbyists.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int i, long id) {
+                Intent intent = new Intent(getActivity(), WebViewActivity.class);
+                int urlId = 0;
+                if (2 == position) {
+                    TabLobbysitsBean tabLobbysitsBean = (TabLobbysitsBean) parent.getItemAtPosition(i);
+                    urlId = tabLobbysitsBean.getResult().getList().get(i - 1).getId();
+                } else if(4 == position) {
+                    TabLettersBean lettersBean = (TabLettersBean) parent.getItemAtPosition(i);
+                    urlId = lettersBean.getResult().getList().get(i - 1).getId();
+                } else {
+                    TabNewsBean newsBean = (TabNewsBean) parent.getItemAtPosition(i);
+                    urlId = newsBean.getResult().getNewslist().get(i - 1).getId();
+                }
+                String url = "http://cont.app.autohome.com.cn/autov4.2.5/content/News/newscontent-a2-pm1-v4.2.5-n"
+                        + urlId + "-lz0-sp0-nt0-sa1-p0-c1-fs0-cw320.html";
+                intent.putExtra("urlWv", url);
+                getActivity().startActivity(intent);
+            }
+        });
     }
 
     private void initSendInterent() {
 
-        if (2 ==position ) {
+        if (2 == position ) {
             GsonRequest<TabLobbysitsBean> gsonRequest = new GsonRequest<TabLobbysitsBean>(url,
                     TabLobbysitsBean.class,
                     new Response.Listener<TabLobbysitsBean>() {

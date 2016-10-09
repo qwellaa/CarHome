@@ -56,11 +56,11 @@ public class TabLobbyistsAdapter extends BaseAdapter {
     @Override
     public Object getItem(int position) {
         if (2 == count) {
-            return bean.getResult().getList().get(position);
+            return bean;
         } else if (4 == count) {
-            return lettersBean.getResult().getList().get(position);
+            return lettersBean;
         } else {
-            return newsBean.getResult().getNewslist().get(position);
+            return newsBean;
         }
     }
 
@@ -92,10 +92,9 @@ public class TabLobbyistsAdapter extends BaseAdapter {
         }
 
         if (4 == count) {
-            float rpc = lettersBean.getResult().getList().get(position).getReviewcount() / 10000;
             viewHolder1.tvTitle.setText(lettersBean.getResult().getList().get(position).getTitle());
             viewHolder1.tvDate.setText(lettersBean.getResult().getList().get(position).getCreatetime());
-            viewHolder1.tvRpc.setText(rpc + "万位观众");
+            viewHolder1.tvRpc.setText(Math.round((lettersBean.getResult().getList().get(position).getReviewcount() / 10000.0) * 10) / 10.0 + "万位观众");
             Picasso.with(context).load(lettersBean.getResult().getList().get(position).getBgimage()).into(viewHolder1.ivImage);
         } else {
             if (2 == count) {

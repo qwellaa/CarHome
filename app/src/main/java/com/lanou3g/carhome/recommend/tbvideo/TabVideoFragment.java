@@ -1,5 +1,8 @@
 package com.lanou3g.carhome.recommend.tbvideo;
 
+import android.content.Intent;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -12,6 +15,7 @@ import com.lanou3g.carhome.baseclass.BaseFragment;
 import com.lanou3g.carhome.networkrequest.GsonRequest;
 import com.lanou3g.carhome.networkrequest.URLValues;
 import com.lanou3g.carhome.networkrequest.VolleySingleton;
+import com.lanou3g.carhome.networkrequest.WebViewActivity;
 
 /**
  *
@@ -47,10 +51,22 @@ public class TabVideoFragment extends BaseFragment{
 
             }
         });
-
         adapter = new TabVideoAdapter(context);
         plvVideo.setAdapter(adapter);
         initSendInterent();
+
+        plvVideo.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                TabVideoBean bean = (TabVideoBean) parent.getItemAtPosition(position);
+//                int urlId = bean.getResult().getList().get(position - 1).getId();
+//                String url = "http://v.autohome.com.cn/v-" + urlId + ".html";
+                String url = bean.getResult().getList().get(position - 1).getShareaddress();
+                Intent intent = new Intent(getActivity(), WebViewActivity.class);
+                intent.putExtra("urlWv", url);
+                getActivity().startActivity(intent);
+            }
+        });
     }
 
     private void initSendInterent() {

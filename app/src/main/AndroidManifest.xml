@@ -32,6 +32,11 @@
             android:theme="@style/Custum_title"/>
         <activity android:name=".forum.tyfourhours.TyFourHoursActivity"
             android:theme="@style/Custum_title"/>
+        <activity android:name=".recommend.tabmore.TabMoreActivity"
+            android:theme="@style/Custum_title"/>
+        <activity android:name=".networkrequest.WebViewActivity"
+            android:theme="@style/Custum_title">
+        </activity>
     </application>
 
 </manifest>
