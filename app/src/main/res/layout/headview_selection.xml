@@ -2,8 +2,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
               android:layout_width="match_parent"
-              android:layout_height="match_parent">
+              android:layout_height="match_parent"
+    android:background="#20b5b5b5">
         <LinearLayout
+            android:background="#fff"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -29,6 +31,7 @@
         </LinearLayout>
 
     <LinearLayout
+        android:background="#fff"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -113,17 +116,28 @@
                 android:background="@drawable/orange_btn_bg"/>
         </LinearLayout>
     </LinearLayout>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="10dp"
-        android:background="#00000000"/>
-    <Button
+    <LinearLayout
+        android:gravity="center_vertical"
+        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/hours_top"
-        android:id="@+id/btn_headview_selection_tfhour"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="8dp"
-        android:background="#00000000"/>
+        android:orientation="horizontal"
+        android:background="#fff"
+        android:id="@+id/btn_headview_selection_tfhour"
+        android:padding="10dp">
+        <TextView
+            android:textSize="15sp"
+            android:gravity="center_vertical"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@mipmap/fire"
+            android:text="24小时热帖"
+            android:textColor="#000"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/right_btn"/>
+    </LinearLayout>
+
 </LinearLayout>

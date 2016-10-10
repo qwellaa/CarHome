@@ -6,7 +6,6 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 
 import com.lanou3g.carhome.R;
@@ -24,7 +23,7 @@ public class RecommendFragment extends BaseFragment implements View.OnClickListe
 
 
 
-    private Button btnSearch;
+    private ImageButton btnSearch;
     private TabLayout tbRecommend;
     private ViewPager vpRecommend;
     private ImageButton ibtnMore;

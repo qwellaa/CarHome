@@ -7,6 +7,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -30,6 +31,7 @@ import com.lanou3g.carhome.networkrequest.GsonRequest;
 import com.lanou3g.carhome.networkrequest.URLValues;
 import com.lanou3g.carhome.networkrequest.VolleySingleton;
 import com.lanou3g.carhome.networkrequest.WebViewActivity;
+import com.lanou3g.carhome.search.SearchActivity;
 import com.squareup.picasso.Picasso;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
@@ -43,31 +45,20 @@ public class DiscoverFragment extends BaseFragment{
 
     private PullToRefreshListView plvDiscover;
     private GoodsListAdapter goodsListAdapter;
-    private TextView tvTitleGoodsList;
+    private TextView tvTitleGoodsList, tvTitleForMe, tvTitleGuess, mTvTitleSale, mTVtitleServicrZone,
+                     mTvTextScoll, mTvTitleScoll;
     private ForMeRecommedAdapter forMeRecommedAdapter;
-    private RecyclerView rvForMe;
+    private RecyclerView rvForMe, rvGuess, rvZone, mRvSale, mServiceZoneRv, mRvEntry;
     private ForMeRecommedAdapter guessAdapter;
-    private RecyclerView rvGuess;
-    private TextView tvTitleForMe;
-    private TextView tvTitleGuess;
-    private ImageView imageSmallBar;
-    private RecyclerView rvZone;
+    private ImageView imageSmallBar, mIvTextScoll, ivBigImage;
     private ActivityZoneAdapter zoneAdapter;
-    private RecyclerView mRvSale;
-    private TextView mTvTitleSale;
     private Button mBtnRightBtn;
     private ActivityZoneAdapter mSaleAdapter;
-    private RecyclerView mServiceZoneRv;
-    private TextView mTVtitleServicrZone;
     private ActivityZoneAdapter mServiceZoneAdapter;
-    private ImageView mIvTextScoll;
-    private TextView mTvTextScoll;
-    private TextView mTvTitleScoll;
-    private RecyclerView mRvEntry;
     private BusinessAdapter businessAdapter;
-    private ImageView ivBigImage;
     private Banner banner;
     private LinearLayout llDate;
+    private ImageButton iBtnSearch;
 
     @Override
     protected int setLayout() {
@@ -81,6 +72,7 @@ public class DiscoverFragment extends BaseFragment{
 
         initHeanView();
 
+        iBtnSearch = bindView(R.id.ibtn_search_custom_title_discover);
     }
 
     @Override
@@ -96,6 +88,15 @@ public class DiscoverFragment extends BaseFragment{
             @Override
             public void onPullUpToRefresh(PullToRefreshBase<ListView> refreshView) {
 
+            }
+        });
+
+        iBtnSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent searchIntent = new Intent(getActivity(), SearchActivity.class);
+                searchIntent.putExtra("hint", "搜索车系或服务");
+                startActivity(searchIntent);
             }
         });
 
@@ -161,7 +162,8 @@ public class DiscoverFragment extends BaseFragment{
                         Toast.makeText(context, "购车计算", Toast.LENGTH_SHORT).show();
                         break;
                     case 5:
-                        Toast.makeText(context, "违规查询", Toast.LENGTH_SHORT).show();
+                        intent.putExtra("urlWv",URLValues.DISCOVER_QUERY_URL);
+                        startActivity(intent);
                         break;
                     case 4:
                         intent.putExtra("urlWv", URLValues.DISCOVER_FIND_CAR);

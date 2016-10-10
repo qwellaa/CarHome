@@ -40,7 +40,7 @@ public class SelectFragment extends BaseFragment implements View.OnClickListener
     private Button btnChoseCare;
     private Button btnGirlChose;
     private LinearLayout llSr;
-    private Button btnTfHour;
+    private LinearLayout btnTfHour;
     private Button btnRedPeople;
     private Button btnConversion;
 

@@ -3,16 +3,21 @@
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="50dp">
-    <Button
+    <TextView
+        android:gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="40dp"
-        android:background="@mipmap/yinpin"
+        android:drawableLeft="@mipmap/ahlib_bar_btn_icon_keyboard"
+        android:drawablePadding="10dp"
         android:layout_centerVertical="true"
+        android:text="音频"
+        android:textSize="17sp"
         android:id="@+id/btn_audio"/>
-    <Button
+    <ImageButton
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:background="@drawable/search"
+        android:background="#00000000"
+        android:src="@drawable/search"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
         android:id="@+id/ibtn_search"/>

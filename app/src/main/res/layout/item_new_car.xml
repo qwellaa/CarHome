@@ -6,6 +6,7 @@
     android:background="#FFFFFF"
     android:gravity="center_vertical">
     <ImageView
+        android:minHeight="50dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/iv_item_new_car"/>

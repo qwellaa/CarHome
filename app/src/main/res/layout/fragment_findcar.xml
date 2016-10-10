@@ -1,36 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
-    <android.support.design.widget.TabLayout
-        android:layout_centerHorizontal="true"
-        android:layout_gravity="center"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/tb_find_car">
-    </android.support.design.widget.TabLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <android.support.design.widget.TabLayout
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/tb_find_car">
+        </android.support.design.widget.TabLayout>
+        <ImageButton
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/search"
+            android:textSize="20sp"
+            android:background="@null"
+            android:id="@+id/btn_find_car_vs"/>
+    </RelativeLayout>
+
     <android.support.v4.view.ViewPager
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/vp_find_car"
         android:layout_below="@id/tb_find_car">
     </android.support.v4.view.ViewPager>
-
-    <Button
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_alignParentRight="true"
-        android:text="VS"
-        android:textSize="20sp"
-        android:background="@null"
-        android:id="@+id/btn_find_car_vs"/>
-    <Button
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:background="@drawable/find_car_calculator_btn_bg"
-        android:layout_marginRight="5dp"
-        android:layout_toLeftOf="@id/btn_find_car_vs"
-        android:id="@+id/btn_find_car_calculator"/>
-</RelativeLayout>
+</LinearLayout>

@@ -7,6 +7,7 @@
     <com.lanou3g.carhome.forum.tyfourhours.TyFourHoursCircleImage
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:minHeight="50dp"
         android:src="@mipmap/ahlib_userpic_default"
         android:id="@+id/iv_item_tyfour_hours"
         app:is_circle="true"/>

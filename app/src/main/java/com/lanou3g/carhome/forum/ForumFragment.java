@@ -6,7 +6,7 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.view.View;
-import android.widget.Button;
+import android.widget.ImageButton;
 
 import com.lanou3g.carhome.R;
 import com.lanou3g.carhome.baseclass.BaseFragment;
@@ -24,7 +24,7 @@ public class ForumFragment extends BaseFragment implements View.OnClickListener 
 
     private TabLayout tbForum;
     private ViewPager vpForum;
-    private Button btnSearch;
+    private ImageButton btnSearch;
 
     @Override
     protected int setLayout() {

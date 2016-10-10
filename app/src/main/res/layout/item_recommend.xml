@@ -32,7 +32,6 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
         <ImageView
-            android:layout_weight="1"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:id="@+id/item_recommend_image"/>

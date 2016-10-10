@@ -139,6 +139,8 @@ public final class URLValues {
     // 整个 第四页
     public static final String GOODS_LIST_URL = "http://223.99.255.20/mobile.app.autohome.com.cn/discover_v7.0.0/mobile/getcardlist.ashx?a=2&pm=1&v=7.0.0&uid=&deviceid=021676cd548e5cf2b6149c916a767228fac74da0&pid=0&cid=0&state=1&pageindex=1&pagesize=20&lat=0.000000&lng=0.000000&hid=";
     // 发现 10个按钮
+    // 违规查询
+    public static final String DISCOVER_QUERY_URL = "http://wz.m.autohome.com.cn/?from=AutohomeApp&pvareaid=103171";
     // 车商城 (webview)
     public static final String DISCOVER_CAR_MALL = "http://m.mall.autohome.com.cn/?isapp=1";
     // 分期购车 (webview)
