@@ -55,13 +55,17 @@
                 android:id="@+id/tv_rpc_item_tab_u_micro"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="评论"/>
+                android:text="评论"
+                android:drawablePadding="4dp"
+                android:drawableLeft="@mipmap/umeng_socialize_action_unlike"/>
             <TextView
                 android:id="@+id/tv_zan_item_tab_u_micro"
                 android:layout_marginLeft="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="赞"/>
+                android:text="赞"
+                android:drawablePadding="4dp"
+                android:drawableLeft="@mipmap/umeng_socialize_action_unlike"/>
         </LinearLayout>
     </LinearLayout>
 </RelativeLayout>

@@ -37,6 +37,9 @@
         <activity android:name=".networkrequest.WebViewActivity"
             android:theme="@style/Custum_title">
         </activity>
+        <activity android:name=".discover.businessenty.allbusinessenty.AllBuessActivity"
+            android:theme="@style/Custum_title">
+        </activity>
     </application>
 
 </manifest>

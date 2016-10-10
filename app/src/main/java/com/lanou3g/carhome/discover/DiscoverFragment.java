@@ -23,6 +23,7 @@ import com.lanou3g.carhome.discover.activityzone.ActivityZoneAdapter;
 import com.lanou3g.carhome.discover.activityzone.LimitedBuyTextView;
 import com.lanou3g.carhome.discover.businessenty.BusinessAdapter;
 import com.lanou3g.carhome.discover.businessenty.OnRecyclerItemClickListener;
+import com.lanou3g.carhome.discover.businessenty.allbusinessenty.AllBuessActivity;
 import com.lanou3g.carhome.discover.formerecommend.ForMeRecommedAdapter;
 import com.lanou3g.carhome.discover.goodslist.GoodsListAdapter;
 import com.lanou3g.carhome.networkrequest.GsonRequest;
@@ -145,7 +146,8 @@ public class DiscoverFragment extends BaseFragment{
                 Intent intent = new Intent(getActivity(), WebViewActivity.class);
                 switch (postion) {
                     case 9:
-                        Toast.makeText(context, "全部", Toast.LENGTH_SHORT).show();
+                        Intent intent1 = new Intent(getActivity(), AllBuessActivity.class);
+                        startActivity(intent1);
                         break;
                     case 8:
                         intent.putExtra("urlWv", URLValues.DISCOVER_CAR_VALUATION);
