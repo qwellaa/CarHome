@@ -1,8 +1,11 @@
 package com.lanou3g.carhome.search;
 
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -11,14 +14,20 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.lanou3g.carhome.R;
 import com.lanou3g.carhome.baseclass.BaseActivity;
+import com.lanou3g.carhome.networkrequest.DBTools;
 import com.lanou3g.carhome.networkrequest.GsonRequest;
 import com.lanou3g.carhome.networkrequest.VolleySingleton;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -27,10 +36,15 @@ public class SearchActivity extends BaseActivity implements View.OnClickListener
 
     private EditText et;
     private Button btnCancel;
-    private ListView lvSearch;
+    private ListView lvSearch, lvHistory;
     private SearchAdapter adapter;
     private ImageButton iBtnClose;
     private WebView webView;
+    private TextView tvRemove;
+    private LinearLayout llHistory;
+    private DBTools dbTools;
+    private SearchHistoryAdapter historyAdapter;
+    private List<SearchHistoryBean> historyArrayList;
 
     @Override
     protected int setLayout() {
@@ -44,15 +58,20 @@ public class SearchActivity extends BaseActivity implements View.OnClickListener
         lvSearch = bindView(R.id.lv_search_activity);
         iBtnClose = bindView(R.id.ibtn_close_search);
         webView = bindView(R.id.wv_search);
+        lvHistory = bindView(R.id.lv_search_history_activity);
+        tvRemove = bindView(R.id.tv_search_remove);
+        llHistory = bindView(R.id.ll_search_activity);
     }
 
     @Override
     protected void initData() {
+
+        tvRemove.setOnClickListener(this);
         btnCancel.setOnClickListener(this);
         iBtnClose.setOnClickListener(this);
 
         final Intent intent = getIntent();
-        String strHint = intent.getStringExtra("hint");
+        final String strHint = intent.getStringExtra("hint");
         et.setHint(strHint);
 
         et.addTextChangedListener(new TextWatcher() {
@@ -72,7 +91,16 @@ public class SearchActivity extends BaseActivity implements View.OnClickListener
                     iBtnClose.setVisibility(View.GONE);
                     lvSearch.setVisibility(View.GONE);
                     webView.setVisibility(View.GONE);
+                    if (historyArrayList.size() > 0) {
+                        llHistory.setVisibility(View.VISIBLE);
+                        lvHistory.setVisibility(View.VISIBLE);
+                    } else {
+                        llHistory.setVisibility(View.GONE);
+                        lvHistory.setVisibility(View.GONE);
+                    }
                 } else {
+                    llHistory.setVisibility(View.GONE);
+                    lvHistory.setVisibility(View.GONE);
                     iBtnClose.setVisibility(View.VISIBLE);
                     lvSearch.setVisibility(View.VISIBLE);
                 }
@@ -83,9 +111,12 @@ public class SearchActivity extends BaseActivity implements View.OnClickListener
         adapter = new SearchAdapter(this);
         lvSearch.setAdapter(adapter);
 
+        historyArrayList = new ArrayList<>();
+
         lvSearch.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
                 webView.setVisibility(View.VISIBLE);
                 SearchBean bean = (SearchBean) parent.getItemAtPosition(position);
                 String str= EncodeUtil.encode(bean.getResult().getWordlist().get(position).getName());
@@ -100,9 +131,59 @@ public class SearchActivity extends BaseActivity implements View.OnClickListener
                 });
                 WebSettings settings = webView.getSettings();
                 settings.setJavaScriptEnabled(true);
+
+                SearchHistoryBean historyBean = new SearchHistoryBean();
+                historyBean.setName(bean.getResult().getWordlist().get(position).getName());
+                historyBean.setUrl(searchUrl);
+                dbTools.insertSearchHistory(historyBean);
+                historyArrayList.add(historyBean);
+                historyAdapter.setBeanList(historyArrayList);
             }
         });
 
+        lvHistory.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                llHistory.setVisibility(View.GONE);
+                lvHistory.setVisibility(View.GONE);
+                SearchHistoryBean bean = (SearchHistoryBean) parent.getItemAtPosition(position);
+                et.setText(bean.getName());
+                webView.setVisibility(View.VISIBLE);
+                String searchUrl = bean.getUrl();
+                webView.loadUrl(searchUrl);
+                webView.setWebViewClient(new WebViewClient(){
+                    @Override
+                    public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                        view.loadUrl(url);
+                        return true;
+                    }
+                });
+                WebSettings settings = webView.getSettings();
+                settings.setJavaScriptEnabled(true);
+            }
+        });
+
+
+        historyAdapter = new SearchHistoryAdapter(this);
+
+        dbTools = DBTools.getInstance();
+        dbTools.getAllSearchHistory(new DBTools.QueryListener<SearchHistoryBean>() {
+            @Override
+            public void onQuery(List<SearchHistoryBean> beanArrayList) {
+                historyArrayList = beanArrayList;
+                historyAdapter.setBeanList(beanArrayList);
+                Log.d("111", "1111");
+                if (beanArrayList.size() > 0) {
+                    llHistory.setVisibility(View.VISIBLE);
+                    lvHistory.setVisibility(View.VISIBLE);
+                } else {
+                    llHistory.setVisibility(View.GONE);
+                    lvHistory.setVisibility(View.GONE);
+                }
+            }
+        });
+
+        lvHistory.setAdapter(historyAdapter);
     }
 
     private void initSendInternet(Editable s) {
@@ -135,6 +216,38 @@ public class SearchActivity extends BaseActivity implements View.OnClickListener
             case R.id.ibtn_close_search:
                 et.setText(null);
                 break;
+            case R.id.tv_search_remove:
+                final AlertDialog dialog = new AlertDialog.Builder(this).create();
+
+                View viewDialog = LayoutInflater.from(this).inflate(R.layout.dialog_remove, null);
+                Button btnCancel = (Button) viewDialog.findViewById(R.id.btn_cancel_dialog);
+                Button btnDetermine = (Button) viewDialog.findViewById(R.id.btn_determine_dialog);
+
+                btnCancel.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialog.cancel();
+                    }
+                });
+
+                btnDetermine.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                        dbTools.deleteAll(SearchHistoryBean.class);
+                        historyArrayList.clear();
+                        historyAdapter.setBeanList(historyArrayList);
+                        dialog.cancel();
+                        llHistory.setVisibility(View.GONE);
+                        lvHistory.setVisibility(View.GONE);
+
+                    }
+                });
+
+                dialog.setView(viewDialog);
+                dialog.show();
+                break;
+
         }
     }
 }

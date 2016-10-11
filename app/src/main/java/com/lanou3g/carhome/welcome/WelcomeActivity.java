@@ -13,6 +13,7 @@ import com.android.volley.VolleyError;
 import com.lanou3g.carhome.R;
 import com.lanou3g.carhome.baseclass.BaseActivity;
 import com.lanou3g.carhome.homepage.MainActivity;
+import com.lanou3g.carhome.networkrequest.DBTools;
 import com.lanou3g.carhome.networkrequest.GsonRequest;
 import com.lanou3g.carhome.networkrequest.URLValues;
 import com.lanou3g.carhome.networkrequest.VolleySingleton;
@@ -25,6 +26,7 @@ public class WelcomeActivity extends BaseActivity{
     private Button mBtnSkip;
     private ImageView mImage;
     private CountDownTimer mTimer;
+    private DBTools dbTools;
 
     @Override
     protected int setLayout() {
@@ -39,6 +41,9 @@ public class WelcomeActivity extends BaseActivity{
 
     @Override
     protected void initData() {
+
+        dbTools = DBTools.getInstance();
+
         mBtnSkip.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

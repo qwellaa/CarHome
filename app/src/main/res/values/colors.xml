@@ -5,4 +5,6 @@
     <color name="colorAccent">#FF4081</color>
     <color name="blue">#3F89FE</color>
     <color name="orange">#FF8000</color>
+    <color name="search_remove_text_color">#878787</color>
+    <color name="black">#000000</color>
 </resources>

@@ -41,4 +41,7 @@
         <item>海外游记</item>
         <item>沧海遗珠</item>
     </string-array>
+    <string name="search_history">搜索历史</string>
+    <string name="search_remove">清除</string>
+    <string name="dialog_remove_title">您确定要清除历史记录吗?</string>
 </resources>

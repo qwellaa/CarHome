@@ -37,6 +37,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     @Override
     protected void initData() {
+
         rBtnRecommend.setOnClickListener(this);
         rBtnForum.setOnClickListener(this);
         rBtnFindCar.setOnClickListener(this);
