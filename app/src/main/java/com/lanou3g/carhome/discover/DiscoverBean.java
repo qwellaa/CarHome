@@ -472,7 +472,7 @@ public class DiscoverBean {
                     this.isoperation = isoperation;
                 }
 
-                private class StatisticsBean {
+                public class StatisticsBean {
                     private String cardtype;
                     private String link;
                     private String pos;

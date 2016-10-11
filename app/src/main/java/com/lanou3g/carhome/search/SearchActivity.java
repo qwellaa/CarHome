@@ -4,6 +4,9 @@ import android.content.Intent;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,7 +19,6 @@ import com.lanou3g.carhome.R;
 import com.lanou3g.carhome.baseclass.BaseActivity;
 import com.lanou3g.carhome.networkrequest.GsonRequest;
 import com.lanou3g.carhome.networkrequest.VolleySingleton;
-import com.lanou3g.carhome.networkrequest.WebViewActivity;
 
 /**
  *
@@ -28,6 +30,7 @@ public class SearchActivity extends BaseActivity implements View.OnClickListener
     private ListView lvSearch;
     private SearchAdapter adapter;
     private ImageButton iBtnClose;
+    private WebView webView;
 
     @Override
     protected int setLayout() {
@@ -40,6 +43,7 @@ public class SearchActivity extends BaseActivity implements View.OnClickListener
         et = bindView(R.id.et_search);
         lvSearch = bindView(R.id.lv_search_activity);
         iBtnClose = bindView(R.id.ibtn_close_search);
+        webView = bindView(R.id.wv_search);
     }
 
     @Override
@@ -65,9 +69,12 @@ public class SearchActivity extends BaseActivity implements View.OnClickListener
             @Override
             public void afterTextChanged(Editable s) {
                 if (s.toString().equals("")) {
-                    iBtnClose.setVisibility(View.INVISIBLE);
+                    iBtnClose.setVisibility(View.GONE);
+                    lvSearch.setVisibility(View.GONE);
+                    webView.setVisibility(View.GONE);
                 } else {
                     iBtnClose.setVisibility(View.VISIBLE);
+                    lvSearch.setVisibility(View.VISIBLE);
                 }
                 initSendInternet(s);
             }
@@ -79,12 +86,20 @@ public class SearchActivity extends BaseActivity implements View.OnClickListener
         lvSearch.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                webView.setVisibility(View.VISIBLE);
                 SearchBean bean = (SearchBean) parent.getItemAtPosition(position);
                 String str= EncodeUtil.encode(bean.getResult().getWordlist().get(position).getName());
                 String searchUrl = "http://sou.m.autohome.com.cn/h5/1.1/search.html?type=0&keyword="+ str + "&night=0&bbsid=0&lng=121.550912&lat=38.889734&nettype=5&netprovider=0";
-                Intent intentWV = new Intent(SearchActivity.this, WebViewActivity.class);
-                intentWV.putExtra("urlWv", searchUrl);
-                startActivity(intentWV);
+                webView.loadUrl(searchUrl);
+                webView.setWebViewClient(new WebViewClient(){
+                    @Override
+                    public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                        view.loadUrl(url);
+                        return true;
+                    }
+                });
+                WebSettings settings = webView.getSettings();
+                settings.setJavaScriptEnabled(true);
             }
         });
 

@@ -4,7 +4,8 @@
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
     android:gravity="center"
-    android:background="#80b5b5b5">
+    android:background="#80b5b5b5"
+    android:id="@+id/ll_item_discover_activity_zone">
     <ImageView
         android:layout_margin="1dp"
         android:layout_width="wrap_content"

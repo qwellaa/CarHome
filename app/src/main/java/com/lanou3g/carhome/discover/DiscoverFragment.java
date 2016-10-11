@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -22,6 +23,7 @@ import com.lanou3g.carhome.R;
 import com.lanou3g.carhome.baseclass.BaseFragment;
 import com.lanou3g.carhome.discover.activityzone.ActivityZoneAdapter;
 import com.lanou3g.carhome.discover.activityzone.LimitedBuyTextView;
+import com.lanou3g.carhome.discover.activityzone.OnZoneRecyclerItemClickListener;
 import com.lanou3g.carhome.discover.businessenty.BusinessAdapter;
 import com.lanou3g.carhome.discover.businessenty.OnRecyclerItemClickListener;
 import com.lanou3g.carhome.discover.businessenty.allbusinessenty.AllBuessActivity;
@@ -187,6 +189,22 @@ public class DiscoverFragment extends BaseFragment{
                     default:
                         break;
                 }
+            }
+        });
+
+        mSaleAdapter.setOnZoneRecyclerItemClickListener(new OnZoneRecyclerItemClickListener() {
+            @Override
+            public void click(int postion, ActivityZoneAdapter.ViewHolder holder, DiscoverBean discoverBean) {
+                Intent intent = new Intent(getActivity(), WebViewActivity.class);
+                for (int i = 0; i < discoverBean.getResult().getCardlist().size(); i++) {
+                    if (discoverBean.getResult().getCardlist().get(i).getDescription().equals("限时抢购")) {
+                        String strUrl = discoverBean.getResult().getCardlist().get(i).getData().get(postion)
+                                .getStatistics().getLink();
+                        Log.d("DiscoverFragment", strUrl);
+                        intent.putExtra("urlWv", strUrl);
+                    }
+                }
+               startActivity(intent);
             }
         });
     }

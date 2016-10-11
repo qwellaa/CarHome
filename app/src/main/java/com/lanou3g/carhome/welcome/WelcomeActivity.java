@@ -1,6 +1,7 @@
 package com.lanou3g.carhome.welcome;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.Button;
@@ -15,7 +16,6 @@ import com.lanou3g.carhome.homepage.MainActivity;
 import com.lanou3g.carhome.networkrequest.GsonRequest;
 import com.lanou3g.carhome.networkrequest.URLValues;
 import com.lanou3g.carhome.networkrequest.VolleySingleton;
-import com.nostra13.universalimageloader.core.ImageLoader;
 
 /**
  *
@@ -59,8 +59,11 @@ public class WelcomeActivity extends BaseActivity{
                     @Override
                     public void onResponse(WelcomeBean response) {
 
-                        ImageLoader.getInstance().displayImage(response.getResult().getAd().getImgad().getImgurl(), mImage);
-
+//                        if (response.getResult().getAd().getImgad().getImgurl().equals("")) {
+                         mImage.setBackgroundColor(Color.WHITE);
+//                        } else {
+//                            ImageLoader.getInstance().displayImage(response.getResult().getAd().getImgad().getImgurl(), mImage);
+//                        }
                         initCountDown(response);
                     }
                 }, new Response.ErrorListener() {
@@ -75,7 +78,8 @@ public class WelcomeActivity extends BaseActivity{
     // 这个方法就是 倒计时反复执行的方法
     private void initCountDown(WelcomeBean response) {
         // 倒计时结束后执行的方法, 在这里执行跳转
-        mTimer = new CountDownTimer(response.getResult().getAd().getShowtime() * 1000, 1000) {
+        // response.getResult().getAd().getShowtime()
+        mTimer = new CountDownTimer(3 * 1000, 1000) {
             @Override
             public void onTick(long l) {
 

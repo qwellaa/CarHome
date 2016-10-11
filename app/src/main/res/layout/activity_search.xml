@@ -30,7 +30,7 @@
                 android:layout_alignParentRight="true"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
-                android:background="@mipmap/close_s"/>
+                android:background="@mipmap/ahlib_nav_icon_close"/>
         </RelativeLayout>
         <Button
             android:layout_width="wrap_content"
@@ -40,9 +40,21 @@
             android:background="#00000000"
             android:id="@+id/btn_search_cancel"/>
     </LinearLayout>
-    <ListView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/lv_search_activity">
-    </ListView>
+        android:layout_height="match_parent">
+        <ListView
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/lv_search_activity">
+        </ListView>
+        <WebView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/wv_search"
+            android:visibility="gone">
+        </WebView>
+    </RelativeLayout>
+
 </LinearLayout>

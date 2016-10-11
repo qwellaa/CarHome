@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import com.lanou3g.carhome.R;
 import com.lanou3g.carhome.discover.DiscoverBean;
@@ -19,6 +20,11 @@ public class ActivityZoneAdapter extends RecyclerView.Adapter<ActivityZoneAdapte
     private Context context;
     private DiscoverBean bean;
     private int id;
+    OnZoneRecyclerItemClickListener onZoneRecyclerItemClickListener;
+
+    public void setOnZoneRecyclerItemClickListener(OnZoneRecyclerItemClickListener onZoneRecyclerItemClickListener) {
+        this.onZoneRecyclerItemClickListener = onZoneRecyclerItemClickListener;
+    }
 
     public ActivityZoneAdapter(Context context) {
         this.context = context;
@@ -41,9 +47,15 @@ public class ActivityZoneAdapter extends RecyclerView.Adapter<ActivityZoneAdapte
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
+    public void onBindViewHolder(final ViewHolder holder, final int position) {
         Picasso.with(context).load(bean.getResult().getCardlist().get(id).getData().get(position).getImageurl())
                 .placeholder(R.mipmap.ahlib_carback).error(R.mipmap.ahlib_carback).into(holder.image);
+        holder.ll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onZoneRecyclerItemClickListener.click(position, holder, bean);
+            }
+        });
     }
 
     @Override
@@ -54,9 +66,11 @@ public class ActivityZoneAdapter extends RecyclerView.Adapter<ActivityZoneAdapte
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         private final ImageView image;
+        private final LinearLayout ll;
 
         public ViewHolder(View itemView) {
             super(itemView);
+            ll = (LinearLayout) itemView.findViewById(R.id.ll_item_discover_activity_zone);
             image = (ImageView) itemView.findViewById(R.id.item_discover_activity_zone_image);
         }
     }
