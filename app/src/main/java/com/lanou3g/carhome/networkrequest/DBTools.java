@@ -57,7 +57,13 @@ public class DBTools {
 
     public void insertSearchHistory(List<SearchHistoryBean> historyBeanList){
         mLiteOrm.insert(historyBeanList);
+
     }
+
+//    // 判断去重复
+//    private boolean isRepeatHistory(SearchHistoryBean historyBean){
+//
+//    }
 
     // 查询搜索历史
     public void getAllSearchHistory(final QueryListener<SearchHistoryBean> queryListener){

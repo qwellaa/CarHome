@@ -40,6 +40,9 @@
         <activity android:name=".discover.businessenty.allbusinessenty.AllBuessActivity"
             android:theme="@style/Custum_title">
         </activity>
+        <activity android:name=".personal.setup.SetUpActivity"
+            android:theme="@style/Custum_title">
+        </activity>
     </application>
 
 </manifest>

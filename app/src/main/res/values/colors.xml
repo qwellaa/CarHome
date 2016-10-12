@@ -7,4 +7,6 @@
     <color name="orange">#FF8000</color>
     <color name="search_remove_text_color">#878787</color>
     <color name="black">#000000</color>
+    <color name="gray">#20878787</color>
+    <color name="write">#ffffff</color>
 </resources>

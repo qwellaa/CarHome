@@ -13,6 +13,9 @@ public final class URLValues {
 
     // 第一页 推荐
     public static final String NEW_URL = "http://app.api.autohome.com.cn/autov4.8.8/news/newslist-pm1-c0-nt0-p1-s30-l0.json";
+
+    public static final String TAB_ALL_URL = "http://news.app.autohome.com.cn/shouye_v7.0.0/mobile/metadata.ashx?a=2&pm=2&v=7.0.7&types=newstype%7C636002832282225908%2Cvideotype%7C636002832282225908";
+
     // 优创
     public static final String U_MICRO_URL = "http://news.app.autohome.com.cn/news_v6.1.0/newspf/NPNewsList.ashx?a=2&pm=2&v=6.1.0&au=&type=3&lastid=&lastuid=0&size=30";
     // 说客

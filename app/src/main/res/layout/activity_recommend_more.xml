@@ -30,4 +30,9 @@
         android:textColor="#dd000000"
         android:padding="3dp"
         android:background="#20b5b5b5"/>
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/rv_recommend_more">
+    </android.support.v7.widget.RecyclerView>
 </LinearLayout>

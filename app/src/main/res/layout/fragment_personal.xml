@@ -114,6 +114,7 @@
                 android:layout_height="wrap_content"
                 android:text="我的草稿"/>
             <TextView
+                android:id="@+id/tv_set_up_personal"
                 android:gravity="center_vertical"
                 android:drawableLeft="@mipmap/ahlib_icon_collection_p2"
                 android:drawableRight="@mipmap/right_btn"
