@@ -10,9 +10,9 @@ public class TabTitlesBean {
     public TabTitlesBean() {
     }
 
-    private static final ArrayList<String> titles = new ArrayList<>();
+    private ArrayList<String> titles = new ArrayList<>();
 
-    public static final ArrayList<String> getTitles() {
+    public  ArrayList<String> getTitles() {
         titles.add("推荐");
         titles.add("优创+");
         titles.add("说客");

@@ -29,22 +29,26 @@ import com.lanou3g.carhome.networkrequest.VolleySingleton;
 import java.util.ArrayList;
 import java.util.List;
 
+import cn.sharesdk.framework.ShareSDK;
+import cn.sharesdk.onekeyshare.OnekeyShare;
+
 /**
  *
  */
 public class SearchActivity extends BaseActivity implements View.OnClickListener {
 
     private EditText et;
-    private Button btnCancel;
+    private Button btnCancel, btnShare;
     private ListView lvSearch, lvHistory;
     private SearchAdapter adapter;
     private ImageButton iBtnClose;
     private WebView webView;
     private TextView tvRemove;
-    private LinearLayout llHistory;
+    private LinearLayout llHistory, llShare;
     private DBTools dbTools;
     private SearchHistoryAdapter historyAdapter;
     private List<SearchHistoryBean> historyArrayList;
+    private String searchUrl;
 
     @Override
     protected int setLayout() {
@@ -53,6 +57,7 @@ public class SearchActivity extends BaseActivity implements View.OnClickListener
 
     @Override
     protected void initView() {
+        ShareSDK.initSDK(this);
         btnCancel = bindView(R.id.btn_search_cancel);
         et = bindView(R.id.et_search);
         lvSearch = bindView(R.id.lv_search_activity);
@@ -61,11 +66,14 @@ public class SearchActivity extends BaseActivity implements View.OnClickListener
         lvHistory = bindView(R.id.lv_search_history_activity);
         tvRemove = bindView(R.id.tv_search_remove);
         llHistory = bindView(R.id.ll_search_activity);
+        btnShare = bindView(R.id.btn_search_share);
+        llShare = bindView(R.id.ll_share_search);
     }
 
     @Override
     protected void initData() {
 
+        btnShare.setOnClickListener(this);
         tvRemove.setOnClickListener(this);
         btnCancel.setOnClickListener(this);
         iBtnClose.setOnClickListener(this);
@@ -91,6 +99,7 @@ public class SearchActivity extends BaseActivity implements View.OnClickListener
                     iBtnClose.setVisibility(View.GONE);
                     lvSearch.setVisibility(View.GONE);
                     webView.setVisibility(View.GONE);
+                    llShare.setVisibility(View.GONE);
                     if (historyArrayList.size() > 0) {
                         llHistory.setVisibility(View.VISIBLE);
                         lvHistory.setVisibility(View.VISIBLE);
@@ -99,6 +108,7 @@ public class SearchActivity extends BaseActivity implements View.OnClickListener
                         lvHistory.setVisibility(View.GONE);
                     }
                 } else {
+
                     llHistory.setVisibility(View.GONE);
                     lvHistory.setVisibility(View.GONE);
                     iBtnClose.setVisibility(View.VISIBLE);
@@ -118,9 +128,11 @@ public class SearchActivity extends BaseActivity implements View.OnClickListener
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
                 webView.setVisibility(View.VISIBLE);
+                llShare.setVisibility(View.VISIBLE);
+
                 SearchBean bean = (SearchBean) parent.getItemAtPosition(position);
                 String str= EncodeUtil.encode(bean.getResult().getWordlist().get(position).getName());
-                String searchUrl = "http://sou.m.autohome.com.cn/h5/1.1/search.html?type=0&keyword="+ str + "&night=0&bbsid=0&lng=121.550912&lat=38.889734&nettype=5&netprovider=0";
+                searchUrl = "http://sou.m.autohome.com.cn/h5/1.1/search.html?type=0&keyword="+ str + "&night=0&bbsid=0&lng=121.550912&lat=38.889734&nettype=5&netprovider=0";
                 webView.loadUrl(searchUrl);
                 webView.setWebViewClient(new WebViewClient(){
                     @Override
@@ -146,10 +158,12 @@ public class SearchActivity extends BaseActivity implements View.OnClickListener
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 llHistory.setVisibility(View.GONE);
                 lvHistory.setVisibility(View.GONE);
+                webView.setVisibility(View.VISIBLE);
+                llShare.setVisibility(View.VISIBLE);
+
                 SearchHistoryBean bean = (SearchHistoryBean) parent.getItemAtPosition(position);
                 et.setText(bean.getName());
-                webView.setVisibility(View.VISIBLE);
-                String searchUrl = bean.getUrl();
+                searchUrl = bean.getUrl();
                 webView.loadUrl(searchUrl);
                 webView.setWebViewClient(new WebViewClient(){
                     @Override
@@ -207,6 +221,32 @@ public class SearchActivity extends BaseActivity implements View.OnClickListener
         }
     }
 
+    private void showShare() {
+        ShareSDK.initSDK(this);
+        OnekeyShare oks = new OnekeyShare();
+        //关闭sso授权
+        oks.disableSSOWhenAuthorize();
+        // title标题，印象笔记、邮箱、信息、微信、人人网和QQ空间等使用
+        oks.setTitle("标题");
+        // titleUrl是标题的网络链接，QQ和QQ空间等使用
+        oks.setTitleUrl(searchUrl);
+        // text是分享文本，所有平台都需要这个字段
+        oks.setText("我是分享文本");
+        // imagePath是图片的本地路径，Linked-In以外的平台都支持此参数
+        //oks.setImagePath("/sdcard/test.jpg");//确保SDcard下面存在此张图片
+        // url仅在微信（包括好友和朋友圈）中使用
+        oks.setUrl("图片网址");
+        // comment是我对这条分享的评论，仅在人人网和QQ空间使用
+        oks.setComment("我是测试评论文本");
+        // site是分享此内容的网站名称，仅在QQ空间使用
+        oks.setSite(getString(R.string.app_name));
+        // siteUrl是分享此内容的网站地址，仅在QQ空间使用
+        oks.setSiteUrl(searchUrl);
+
+        // 启动分享GUI
+        oks.show(this);
+    }
+
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
@@ -246,6 +286,9 @@ public class SearchActivity extends BaseActivity implements View.OnClickListener
 
                 dialog.setView(viewDialog);
                 dialog.show();
+                break;
+            case R.id.btn_search_share:
+                showShare();
                 break;
 
         }

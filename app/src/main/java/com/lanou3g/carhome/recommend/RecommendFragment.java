@@ -48,9 +48,10 @@ public class RecommendFragment extends BaseFragment implements View.OnClickListe
         btnSearch.setOnClickListener(this);
         ibtnMore.setOnClickListener(this);
 
-
-        ArrayList<Fragment> fragments = TabFragmentBean.getFragments();
-        ArrayList<String> titles = TabTitlesBean.getTitles();
+        TabFragmentBean fragmentBean = new TabFragmentBean();
+        ArrayList<Fragment> fragments = fragmentBean.getFragments();
+        TabTitlesBean tabTitlesBean = new TabTitlesBean();
+        ArrayList<String> titles = tabTitlesBean.getTitles();
 
 
         RecommendAdapter adapter = new RecommendAdapter(getChildFragmentManager(), context);

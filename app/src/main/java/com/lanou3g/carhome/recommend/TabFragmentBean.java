@@ -19,9 +19,9 @@ public class TabFragmentBean {
     public TabFragmentBean() {
     }
 
-    private static final ArrayList<Fragment> fragments = new ArrayList<>();
+    private  ArrayList<Fragment> fragments = new ArrayList<>();
 
-    public static final ArrayList<Fragment> getFragments() {
+    public ArrayList<Fragment> getFragments() {
         fragments.add(new TabRecommendFragment());
         fragments.add(new TabUMicroFragment());
         fragments.add(new TabLobbyistsFragment());

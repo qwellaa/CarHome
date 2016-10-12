@@ -92,6 +92,39 @@
             android:layout_height="match_parent"
             android:id="@+id/lv_search_history_activity">
         </ListView>
+        <LinearLayout
+            android:visibility="gone"
+            android:id="@+id/ll_share_search"
+            android:background="#ffffff"
+            android:layout_alignParentBottom="true"
+            android:padding="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+            <TextView
+                android:textColor="@color/blue"
+                android:text="@string/web_comments"
+                android:textSize="20sp"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"/>
+            <Button
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@mipmap/umeng_socialize_action_comment_selected"/>
+            <Button
+                android:layout_marginLeft="30dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@mipmap/umeng_socialize_action_unlike"/>
+            <Button
+                android:id="@+id/btn_search_share"
+                android:layout_marginLeft="30dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@mipmap/umeng_socialize_action_share_selected"/>
+        </LinearLayout>
     </RelativeLayout>
 
 </LinearLayout>
