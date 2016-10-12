@@ -18,15 +18,16 @@ import com.squareup.picasso.Picasso;
 public class TabMoreAdapter extends RecyclerView.Adapter<TabMoreAdapter.ViewHolder>{
 
     private Context context;
-    private TabMoreBean bean;
 
-    public TabMoreAdapter(Context context) {
-        this.context = context;
-    }
+    private TabMoreBean bean;
 
     public void setBean(TabMoreBean bean) {
         this.bean = bean;
         notifyDataSetChanged();
+    }
+
+    public TabMoreAdapter(Context context) {
+        this.context = context;
     }
 
     @Override
@@ -39,13 +40,19 @@ public class TabMoreAdapter extends RecyclerView.Adapter<TabMoreAdapter.ViewHold
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         holder.tvTitle.setText(bean.getResult().getMetalist().get(0).getList().get(position).getName());
-
         Picasso.with(context).load(bean.getResult().getMetalist().get(0).getList().get(position).getIconurl()).into(holder.image);
     }
 
     @Override
     public int getItemCount() {
         return bean == null ? 0 : bean.getResult().getMetalist().get(0).getList().size();
+    }
+
+    public void move(int from, int to) {
+        TabMoreBean.ResultBean.MetalistBean.ListBean fromStr = bean.getResult().getMetalist().get(0).getList().remove(from);
+        int position = from >= to ? to : to - 1;
+        bean.getResult().getMetalist().get(0).getList().add(position, fromStr);
+        notifyItemMoved(from, to);
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

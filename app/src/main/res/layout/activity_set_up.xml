@@ -73,6 +73,9 @@
                     android:layout_weight="1"
                     android:text="@string/set_up_text_small_image"
                     style="@style/set_up_text"/>
+                <Switch
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
             </LinearLayout>
 
             <LinearLayout
@@ -99,6 +102,9 @@
                         android:text="@string/set_up_text_hd_image_more"
                         android:textSize="15sp"/>
                 </LinearLayout>
+                <Switch
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
             </LinearLayout>
 
             <LinearLayout
@@ -116,6 +122,9 @@
                     android:layout_weight="1"
                     android:text="@string/set_up_text_forum_pager"
                     style="@style/set_up_text"/>
+                <Switch
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
             </LinearLayout>
 
             <LinearLayout
