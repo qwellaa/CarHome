@@ -54,6 +54,9 @@
         <activity android:name=".personal.setup.SetUpActivity"
             android:theme="@style/Custum_title">
         </activity>
+        <activity android:name=".personal.setup.push.PushActivity"
+            android:theme="@style/Custum_title">
+        </activity>
         <activity
             android:name="com.mob.tools.MobUIShell"
             android:theme="@android:style/Theme.Translucent.NoTitleBar"

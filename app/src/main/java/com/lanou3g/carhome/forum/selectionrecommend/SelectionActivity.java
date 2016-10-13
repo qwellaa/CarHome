@@ -29,6 +29,7 @@ public class SelectionActivity extends BaseActivity{
     private SelectionAdapter adapter;
     private PullToRefreshListView plvSelection;
     private int num = 1;
+    private String strUrl;
 
     @Override
     protected int setLayout() {
@@ -57,10 +58,8 @@ public class SelectionActivity extends BaseActivity{
 
             @Override
             public void onPullUpToRefresh(PullToRefreshBase<ListView> refreshView) {
-                Intent intent = getIntent();
-                String strUrl = intent.getStringExtra("url");
                 num = num + 1;
-                strUrl =  strUrl.substring(0,strUrl.length()-10) + num + "-s30.json";
+                strUrl =  strUrl.substring(0 ,strUrl.length() - 10) + num + "-s30.json";
                 GsonRequest<SelectionBean> gsonRequest = new GsonRequest<SelectionBean>(strUrl,
                         SelectionBean.class,
                         new Response.Listener<SelectionBean>() {
@@ -98,7 +97,7 @@ public class SelectionActivity extends BaseActivity{
 
     private void selectionSendInterent() {
         Intent intent = getIntent();
-        String strUrl = intent.getStringExtra("url");
+        strUrl = intent.getStringExtra("url");
         String title = intent.getStringExtra("title");
 
         tvInTitle.setText(title);

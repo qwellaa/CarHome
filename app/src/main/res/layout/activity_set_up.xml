@@ -5,6 +5,8 @@
               android:layout_margin="12dp"
               android:orientation="vertical">
 
+    <include layout="@layout/custom_title_selection"
+             android:id="@+id/include_title_selection"/>
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">

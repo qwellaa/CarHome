@@ -17,6 +17,7 @@ import com.lanou3g.carhome.networkrequest.DBTools;
 import com.lanou3g.carhome.networkrequest.GsonRequest;
 import com.lanou3g.carhome.networkrequest.URLValues;
 import com.lanou3g.carhome.networkrequest.VolleySingleton;
+import com.nostra13.universalimageloader.core.ImageLoader;
 
 /**
  *
@@ -27,6 +28,7 @@ public class WelcomeActivity extends BaseActivity{
     private ImageView mImage;
     private CountDownTimer mTimer;
     private DBTools dbTools;
+    private String openUrl;
 
     @Override
     protected int setLayout() {
@@ -55,6 +57,17 @@ public class WelcomeActivity extends BaseActivity{
         });
 
         sendInterent();
+
+//        mImage.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                mTimer.cancel();
+//                Intent intent = new Intent(WelcomeActivity.this, WebViewActivity.class);
+//                intent.putExtra("urlWv", openUrl);
+//                startActivity(intent);
+//                finish();
+//            }
+//        });
     }
 
     private void sendInterent() {
@@ -64,11 +77,12 @@ public class WelcomeActivity extends BaseActivity{
                     @Override
                     public void onResponse(WelcomeBean response) {
 
-//                        if (response.getResult().getAd().getImgad().getImgurl().equals("")) {
+                        if (response.getResult().getAd().getImgad().getImgurl().equals("")) {
                          mImage.setBackgroundColor(Color.WHITE);
-//                        } else {
-//                            ImageLoader.getInstance().displayImage(response.getResult().getAd().getImgad().getImgurl(), mImage);
-//                        }
+                        } else {
+                            ImageLoader.getInstance().displayImage(response.getResult().getAd().getImgad().getImgurl(), mImage);
+                        }
+                        openUrl = response.getResult().getAd().getImgad().getOpenurl();
                         initCountDown(response);
                     }
                 }, new Response.ErrorListener() {
@@ -83,8 +97,7 @@ public class WelcomeActivity extends BaseActivity{
     // 这个方法就是 倒计时反复执行的方法
     private void initCountDown(WelcomeBean response) {
         // 倒计时结束后执行的方法, 在这里执行跳转
-        // response.getResult().getAd().getShowtime()
-        mTimer = new CountDownTimer(3 * 1000, 1000) {
+        mTimer = new CountDownTimer(response.getResult().getAd().getShowtime() * 1000, 1000) {
             @Override
             public void onTick(long l) {
 

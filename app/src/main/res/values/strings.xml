@@ -58,4 +58,9 @@
     <string name="set_up_text_app_store">去AppStore给个5星吧</string>
     <string name="set_up_text_detection_update">检测更新</string>
     <string name="web_comments">发表评论...</string>
+    <string name="push_system_message">系统消息</string>
+    <string name="push_body">推送内容</string>
+    <string name="push_date">推送时间</string>
+    <string name="push_person_message">个人消息</string>
+    <string name="push_receiving_time">推送接收时间</string>
 </resources>
