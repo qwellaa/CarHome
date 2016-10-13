@@ -5,6 +5,8 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import cn.jpush.android.api.JPushInterface;
+
 /**
  *
  * Activity 的基类
@@ -44,5 +46,17 @@ public abstract class BaseActivity extends AppCompatActivity {
      */
     protected <T extends View> T bindView(int id) {
         return (T) findViewById(id);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        JPushInterface.onResume(this);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        JPushInterface.onPause(this);
     }
 }
