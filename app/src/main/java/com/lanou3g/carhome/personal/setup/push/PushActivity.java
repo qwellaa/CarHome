@@ -1,6 +1,7 @@
 package com.lanou3g.carhome.personal.setup.push;
 
 import android.content.SharedPreferences;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.ImageButton;
@@ -84,7 +85,14 @@ public class PushActivity extends BaseActivity implements View.OnClickListener {
                 finish();
                 break;
             case R.id.ll_set_up_push_date:
+                showPopFormBottom(llPushDate);
                 break;
         }
     }
+
+    public void showPopFormBottom(View view) {
+        PushDatePopWin pushDatePopWin = new PushDatePopWin(this);
+        pushDatePopWin.showAtLocation(findViewById(R.id.ll_set_up_push_date), Gravity.BOTTOM, 0, 0);
+    }
+
 }
