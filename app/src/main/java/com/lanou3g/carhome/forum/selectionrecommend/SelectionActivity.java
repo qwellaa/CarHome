@@ -28,6 +28,7 @@ public class SelectionActivity extends BaseActivity{
     private ImageButton ibtnBack;
     private SelectionAdapter adapter;
     private PullToRefreshListView plvSelection;
+    private int num = 1;
 
     @Override
     protected int setLayout() {
@@ -56,7 +57,25 @@ public class SelectionActivity extends BaseActivity{
 
             @Override
             public void onPullUpToRefresh(PullToRefreshBase<ListView> refreshView) {
-
+                Intent intent = getIntent();
+                String strUrl = intent.getStringExtra("url");
+                num = num + 1;
+                strUrl =  strUrl.substring(0,strUrl.length()-10) + num + "-s30.json";
+                GsonRequest<SelectionBean> gsonRequest = new GsonRequest<SelectionBean>(strUrl,
+                        SelectionBean.class,
+                        new Response.Listener<SelectionBean>() {
+                            @Override
+                            public void onResponse(SelectionBean response) {
+                                adapter.setBean1(response);
+                                plvSelection.onRefreshComplete();
+                            }
+                        }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(SelectionActivity.this, "网络请求失败", Toast.LENGTH_SHORT).show();
+                    }
+                });
+                VolleySingleton.getInstance().addRequest(gsonRequest);
             }
         });
 

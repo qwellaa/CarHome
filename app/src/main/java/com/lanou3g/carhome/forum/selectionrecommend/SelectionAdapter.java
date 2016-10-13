@@ -63,6 +63,13 @@ public class SelectionAdapter extends BaseAdapter{
         return view;
     }
 
+    public void setBean1(SelectionBean response) {
+
+        bean.getResult().getList().addAll(response.getResult().getList());
+        notifyDataSetChanged();
+
+    }
+
     private class SelectionViewHolder {
         private final ImageView ivImage;
         private final TextView tvComment;

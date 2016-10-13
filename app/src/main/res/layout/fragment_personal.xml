@@ -48,6 +48,7 @@
                 android:background="#fff"
                 android:padding="10dp">
                 <TextView
+                    android:id="@+id/tv_login_sina"
                     android:gravity="center"
                     android:layout_weight="1"
                     android:layout_width="0dp"
@@ -55,6 +56,7 @@
                     android:drawableTop="@mipmap/umeng_socialize_sina_off"
                     android:text="新浪微博"/>
                 <TextView
+                    android:id="@+id/tv_login_qq"
                     android:gravity="center"
                     android:layout_weight="1"
                     android:layout_width="0dp"
