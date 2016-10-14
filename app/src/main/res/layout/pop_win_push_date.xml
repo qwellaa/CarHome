@@ -3,7 +3,8 @@
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="150dp"
-    android:id="@+id/pop_layout">
+    android:id="@+id/pop_layout"
+    android:layout_margin="12dp">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -14,7 +15,7 @@
             android:text="取消"
             android:textSize="18sp"
             android:textColor="@color/blue"
-            android:background="@null"/>
+            android:background="@drawable/blue_btn_bg"/>
         <Button
             android:textSize="18sp"
             android:layout_alignParentRight="true"
@@ -23,21 +24,23 @@
             android:layout_height="wrap_content"
             android:text="确定"
             android:textColor="@color/blue"
-            android:background="@null"/>
+            android:background="@drawable/blue_btn_bg"/>
     </RelativeLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
-        <TimePicker
+        <NumberPicker
+            android:id="@+id/time_picker_start"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content">
-        </TimePicker>
-        <TimePicker
+        </NumberPicker>
+        <NumberPicker
+            android:id="@+id/time_picker_end"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content">
-        </TimePicker>
+        </NumberPicker>
     </LinearLayout>
 </LinearLayout>

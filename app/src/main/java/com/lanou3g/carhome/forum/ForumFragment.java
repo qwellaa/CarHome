@@ -51,7 +51,7 @@ public class ForumFragment extends BaseFragment implements View.OnClickListener 
         titles.add("精选");
         titles.add("论坛");
 
-        ForumVpAdapter adapter = new ForumVpAdapter(getChildFragmentManager(), context);
+        ForumVpAdapter adapter = new ForumVpAdapter(getChildFragmentManager());
         adapter.setFragments(fragments);
         adapter.setTitles(titles);
         vpForum.setAdapter(adapter);

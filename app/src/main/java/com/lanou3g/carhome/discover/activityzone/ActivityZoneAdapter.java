@@ -20,7 +20,7 @@ public class ActivityZoneAdapter extends RecyclerView.Adapter<ActivityZoneAdapte
     private Context context;
     private DiscoverBean bean;
     private int id;
-    OnZoneRecyclerItemClickListener onZoneRecyclerItemClickListener;
+    private OnZoneRecyclerItemClickListener onZoneRecyclerItemClickListener;
 
     public void setOnZoneRecyclerItemClickListener(OnZoneRecyclerItemClickListener onZoneRecyclerItemClickListener) {
         this.onZoneRecyclerItemClickListener = onZoneRecyclerItemClickListener;

@@ -18,8 +18,8 @@ import com.squareup.picasso.Picasso;
  */
 public class BusinessAdapter extends RecyclerView.Adapter<BusinessAdapter.ViewHolder>{
 
-    OnRecyclerItemClickListener onRecyclerItemClickListener;
-    OnRecyclerItemLongClickListener onRecyclerItemLongClickListener;
+    private OnRecyclerItemClickListener onRecyclerItemClickListener;
+    private OnRecyclerItemLongClickListener onRecyclerItemLongClickListener;
 
     private Context context;
     private DiscoverBean bean;

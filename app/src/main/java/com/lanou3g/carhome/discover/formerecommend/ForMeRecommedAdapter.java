@@ -17,8 +17,8 @@ import com.squareup.picasso.Picasso;
  */
 public class ForMeRecommedAdapter extends RecyclerView.Adapter<ForMeRecommedAdapter.ForMeViewHolder>{
 
-    Context context;
-    DiscoverBean bean;
+    private Context context;
+    private DiscoverBean bean;
     private int id;
 
     public ForMeRecommedAdapter(Context context) {

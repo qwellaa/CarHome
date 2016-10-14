@@ -16,8 +16,8 @@ import java.util.ArrayList;
  */
 public class SelectionAllAdapter extends BaseAdapter{
 
-    Context context;
-    ArrayList<String> arrayList;
+    private Context context;
+    private ArrayList<String> arrayList;
 
     public SelectionAllAdapter(Context context) {
         this.context = context;

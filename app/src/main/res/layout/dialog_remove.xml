@@ -6,6 +6,7 @@
     android:background="#80b5b5b5"
     android:id="@+id/ll_dialog_remove">
     <TextView
+        android:id="@+id/tv_clear_search_history"
         android:background="#fff"
         android:textColor="@color/black"
         android:gravity="center"

@@ -6,6 +6,7 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Button;
+import android.widget.LinearLayout;
 
 import com.lanou3g.carhome.R;
 import com.lanou3g.carhome.baseclass.BaseActivity;
@@ -21,6 +22,7 @@ public class WebViewActivity extends BaseActivity implements View.OnClickListene
     private WebView wv;
     private Button btnShare;
     private String url;
+    private LinearLayout llShare;
 
     @Override
     protected int setLayout() {
@@ -32,6 +34,7 @@ public class WebViewActivity extends BaseActivity implements View.OnClickListene
         ShareSDK.initSDK(this);
         wv = bindView(R.id.wv);
         btnShare = bindView(R.id.btn_webview_share);
+        llShare = bindView(R.id.ll_web_share);
     }
 
     @Override
@@ -41,6 +44,12 @@ public class WebViewActivity extends BaseActivity implements View.OnClickListene
 
         Intent intent = getIntent();
         url = intent.getStringExtra("urlWv");
+        Boolean isAccordingShare = intent.getBooleanExtra("isAccordingShare", false);
+        if (isAccordingShare) {
+            llShare.setVisibility(View.VISIBLE);
+        } else {
+            llShare.setVisibility(View.INVISIBLE);
+        }
         wv.loadUrl(url);
         wv.setWebViewClient(new WebViewClient(){
             @Override

@@ -103,6 +103,7 @@ public class SelectFragment extends BaseFragment implements View.OnClickListener
                         + urlId + "-o0-p1-s20-c1-nt0-fs0-sp0-al0-cw320.json";
                 Intent intent = new Intent(getActivity(), WebViewActivity.class);
                 intent.putExtra("urlWv", url);
+                intent.putExtra("isAccordingShare", true);
                 getActivity().startActivity(intent);
             }
         });
@@ -178,6 +179,7 @@ public class SelectFragment extends BaseFragment implements View.OnClickListener
                 intent.setClass(getActivity(), SelectionActivity.class);
                 intent.putExtra("url", URLValues.BEAUTY_URL);
                 intent.putExtra("title", strBeauty);
+
                 startActivity(intent);
                 break;
             case R.id.btn_headview_selection_high:

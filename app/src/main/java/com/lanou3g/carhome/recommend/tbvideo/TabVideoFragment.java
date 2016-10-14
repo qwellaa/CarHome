@@ -64,6 +64,7 @@ public class TabVideoFragment extends BaseFragment{
                 String url = bean.getResult().getList().get(position - 1).getShareaddress();
                 Intent intent = new Intent(getActivity(), WebViewActivity.class);
                 intent.putExtra("urlWv", url);
+                intent.putExtra("isAccordingShare", true);
                 getActivity().startActivity(intent);
             }
         });

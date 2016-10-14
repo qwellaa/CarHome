@@ -69,7 +69,6 @@
             android:layout_height="wrap_content"/>
         <TextView
             android:id="@+id/tv_set_push_date"
-            android:text="每日8:00-22:00"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:drawablePadding="10dp"

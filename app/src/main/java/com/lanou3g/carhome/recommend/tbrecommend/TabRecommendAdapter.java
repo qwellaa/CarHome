@@ -16,8 +16,8 @@ import com.squareup.picasso.Picasso;
  */
 public class TabRecommendAdapter extends BaseAdapter {
 
-    Context context;
-    TabRecommendBean bean;
+    private Context context;
+    private TabRecommendBean bean;
     private final int TYPE_COUNT = 2;
     private final int TYPE_NORMAL = 0;
     private final int TYPE_THREE_IMAGE = 1;

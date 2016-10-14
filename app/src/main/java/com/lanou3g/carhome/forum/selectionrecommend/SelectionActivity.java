@@ -90,6 +90,7 @@ public class SelectionActivity extends BaseActivity{
                         + urlId + "-o0-p1-s20-c1-nt0-fs0-sp0-al0-cw320.json";
                 Intent intent = new Intent(SelectionActivity.this, WebViewActivity.class);
                 intent.putExtra("urlWv", url);
+                intent.putExtra("isAccordingShare", true);
                 startActivity(intent);
             }
         });

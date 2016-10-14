@@ -17,8 +17,8 @@ import com.squareup.picasso.Picasso;
  */
 public class TabUMicroAdapter extends BaseAdapter{
 
-    Context context;
-    TabUMicroBean bean;
+    private Context context;
+    private TabUMicroBean bean;
 
     public TabUMicroAdapter(Context context) {
         this.context = context;

@@ -147,6 +147,7 @@
                     style="@style/set_up_text"/>
             </LinearLayout>
             <LinearLayout
+                android:id="@+id/ll_set_up_clear_cache"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="1dp"
@@ -163,9 +164,9 @@
                     style="@style/set_up_text"/>
 
                 <TextView
+                    android:id="@+id/tv_set_up_clear_cache"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="9M"/>
+                    android:layout_height="wrap_content"/>
             </LinearLayout>
 
             <LinearLayout

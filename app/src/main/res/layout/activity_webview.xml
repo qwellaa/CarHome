@@ -10,6 +10,7 @@
         android:background="#FFFFFF">
     </WebView>
     <LinearLayout
+        android:id="@+id/ll_web_share"
         android:background="#ffffff"
         android:layout_alignParentBottom="true"
         android:padding="10dp"

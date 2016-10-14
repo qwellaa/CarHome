@@ -90,6 +90,7 @@ public class TabLobbyistsFragment extends BaseFragment{
                 String url = "http://cont.app.autohome.com.cn/autov4.2.5/content/News/newscontent-a2-pm1-v4.2.5-n"
                         + urlId + "-lz0-sp0-nt0-sa1-p0-c1-fs0-cw320.html";
                 intent.putExtra("urlWv", url);
+                intent.putExtra("isAccordingShare", true);
                 getActivity().startActivity(intent);
             }
         });

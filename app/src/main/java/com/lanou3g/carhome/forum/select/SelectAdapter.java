@@ -16,8 +16,8 @@ import com.squareup.picasso.Picasso;
  */
 public class SelectAdapter extends BaseAdapter{
 
-    Context context;
-    SelectBean bean;
+    private Context context;
+    private SelectBean bean;
 
     public SelectAdapter(Context context) {
         this.context = context;

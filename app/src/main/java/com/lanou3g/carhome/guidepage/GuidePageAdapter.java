@@ -12,8 +12,8 @@ import java.util.ArrayList;
  */
 public class GuidePageAdapter extends FragmentPagerAdapter{
 
-    Context context;
-    ArrayList<Fragment> fragments;
+    private Context context;
+    private ArrayList<Fragment> fragments;
 
     public GuidePageAdapter(FragmentManager fm, Context context) {
         super(fm);
