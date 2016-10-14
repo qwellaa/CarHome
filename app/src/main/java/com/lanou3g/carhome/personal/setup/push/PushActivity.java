@@ -114,12 +114,12 @@ public class PushActivity extends BaseActivity implements View.OnClickListener {
                 finish();
                 break;
             case R.id.ll_set_up_push_date:
-                initPopWinPush();
+                initPopWinPushDate();
                 break;
         }
     }
 
-    private void initPopWinPush() {
+    private void initPopWinPushDate() {
         View pushView = LayoutInflater.from(this).inflate(R.layout.pop_win_push_date, null);
         Button btnCancel = (Button) pushView.findViewById(R.id.btn_pop_win_cannel);
         Button btnDetermine = (Button) pushView.findViewById(R.id.btn_pop_win_determine);
