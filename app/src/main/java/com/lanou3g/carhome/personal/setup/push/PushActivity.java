@@ -59,6 +59,7 @@ public class PushActivity extends BaseActivity implements View.OnClickListener {
     @Override
     protected void initData() {
 
+        // 接收推送时间
         setPushDateReceiver = new SetPushDateReceiver();
         IntentFilter filter = new IntentFilter();
         filter.addAction("setPushTime");
@@ -81,7 +82,6 @@ public class PushActivity extends BaseActivity implements View.OnClickListener {
 
         startHour = sp.getInt("startNum", 8);
         endHour = sp.getInt("endNum", 22);
-
         tvSetDate.setText("每日 " + startHour + ":00 - " + endHour + ":00" );
 
         if (isSysMsg == true) {
@@ -170,7 +170,7 @@ public class PushActivity extends BaseActivity implements View.OnClickListener {
         timeEnd.setValue(timeEnd.getValue());
 
         if (timeStart.getValue() >= timeEnd.getValue()) {
-            Toast.makeText(this, "有病啊! 你家的'起始时间和结束时间'这么添啊, 智障!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "有病啊!时间这么设置,MDZZ!", Toast.LENGTH_SHORT).show();
         } else {
             spEt.putInt("startNum", timeStart.getValue());
             spEt.putInt("endNum", timeEnd.getValue());

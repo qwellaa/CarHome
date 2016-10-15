@@ -11,7 +11,7 @@
     </WebView>
     <LinearLayout
         android:id="@+id/ll_web_share"
-        android:background="#ffffff"
+        android:background="#80ffffff"
         android:layout_alignParentBottom="true"
         android:padding="10dp"
         android:layout_width="match_parent"

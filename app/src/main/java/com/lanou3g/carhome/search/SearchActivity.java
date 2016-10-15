@@ -127,6 +127,7 @@ public class SearchActivity extends BaseActivity implements View.OnClickListener
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
+                lvSearch.setVisibility(View.GONE);
                 webView.setVisibility(View.VISIBLE);
                 llShare.setVisibility(View.VISIBLE);
 

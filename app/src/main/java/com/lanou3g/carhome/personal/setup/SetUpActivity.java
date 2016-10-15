@@ -46,7 +46,7 @@ public class SetUpActivity extends BaseActivity implements View.OnClickListener 
         tvTitle.setText("设置");
 
         try {
-            //获取大小
+            // 获取缓存大小
             String file = DataCleanManager.getTotalCacheSize(this);
             tvClearCache.setText(file);
         } catch (Exception e) {
@@ -85,10 +85,10 @@ public class SetUpActivity extends BaseActivity implements View.OnClickListener 
                 btnDetermine.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        //清除
+                        // 清除
                         DataCleanManager.clearAllCache(SetUpActivity.this);
                         try {
-                            //获取大小
+                            // 获取大小
                             String file = DataCleanManager.getTotalCacheSize(SetUpActivity.this);
                             tvClearCache.setText(file);
                         } catch (Exception e) {

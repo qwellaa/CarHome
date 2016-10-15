@@ -28,7 +28,7 @@ public class WelcomeActivity extends BaseActivity{
     private CountDownTimer mTimer;
     private DBTools dbTools;
     private String openUrl;
-    private int countDownNum;
+    private int countDownNum = 3;
 
     @Override
     protected int setLayout() {
@@ -77,19 +77,22 @@ public class WelcomeActivity extends BaseActivity{
                     @Override
                     public void onResponse(WelcomeBean response) {
 
-                        if (response.getResult().getAd().getImgad().getImgurl().equals("")) {
-                         mImage.setBackgroundColor(Color.WHITE);
+                        if (response.getResult().getIshavead() == 0) {
+                            mImage.setBackgroundColor(Color.WHITE);
                         } else {
-                            ImageLoader.getInstance().displayImage(response.getResult().getAd().getImgad().getImgurl(), mImage);
+                            if (response.getResult().getAd().getImgad().getImgurl().equals("")) {
+                                mImage.setBackgroundColor(Color.WHITE);
+                            } else {
+                                ImageLoader.getInstance().displayImage(response.getResult().getAd().getImgad().getImgurl(), mImage);
+                                countDownNum = response.getResult().getAd().getShowtime();
+//                                openUrl = response.getResult().getAd().getImgad().getOpenurl();
+                            }
                         }
-                        openUrl = response.getResult().getAd().getImgad().getOpenurl();
-                        countDownNum = response.getResult().getAd().getShowtime();
                         initCountDown();
                     }
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                countDownNum = 3;
                 initCountDown();
             }
         });

@@ -55,8 +55,13 @@ public class DBTools {
         }).start();
     }
 
-    public void insertSearchHistory(List<SearchHistoryBean> historyBeanList){
-        mLiteOrm.insert(historyBeanList);
+    public void insertSearchHistory(final List<SearchHistoryBean> historyBeanList){
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                mLiteOrm.insert(historyBeanList);
+            }
+        }).start();
 
     }
 

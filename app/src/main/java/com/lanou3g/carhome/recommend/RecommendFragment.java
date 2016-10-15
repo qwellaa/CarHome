@@ -53,8 +53,7 @@ public class RecommendFragment extends BaseFragment implements View.OnClickListe
         TabTitlesBean tabTitlesBean = new TabTitlesBean();
         ArrayList<String> titles = tabTitlesBean.getTitles();
 
-
-        RecommendAdapter adapter = new RecommendAdapter(getChildFragmentManager(), context);
+        RecommendAdapter adapter = new RecommendAdapter(getChildFragmentManager());
         adapter.setFragments(fragments);
         adapter.setTitles(titles);
 

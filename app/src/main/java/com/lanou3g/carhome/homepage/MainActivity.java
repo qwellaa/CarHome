@@ -48,6 +48,10 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
         // 默认显示的碎片
         FragmentManager manager = getSupportFragmentManager();
+        /**
+         * 使用Fragment时，可以通过用户交互来执行一些动作，比如增加、移除、替换等。
+         * 所有这些改变构成一个集合，这个集合被叫做一个transaction。
+         */
         FragmentTransaction transaction = manager.beginTransaction();
         transaction.replace(R.id.replace_view, new RecommendFragment());
         transaction.commit();

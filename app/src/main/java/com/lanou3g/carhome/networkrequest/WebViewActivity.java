@@ -48,7 +48,7 @@ public class WebViewActivity extends BaseActivity implements View.OnClickListene
         if (isAccordingShare) {
             llShare.setVisibility(View.VISIBLE);
         } else {
-            llShare.setVisibility(View.INVISIBLE);
+            llShare.setVisibility(View.GONE);
         }
         wv.loadUrl(url);
         wv.setWebViewClient(new WebViewClient(){

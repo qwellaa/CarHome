@@ -25,6 +25,7 @@ public class MyApp extends Application{
     public void onCreate() {
         super.onCreate();
         context = this;
+
         File cacheDir = StorageUtils.getOwnCacheDirectory(getApplicationContext(), "imageloader/Cache");
         ImageLoaderConfiguration configuration =
                 new ImageLoaderConfiguration
