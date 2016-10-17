@@ -77,7 +77,6 @@
                 android:text="7座大空间"/>
         </LinearLayout>
         <Button
-            android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:layout_marginTop="10dp"
             android:layout_width="match_parent"

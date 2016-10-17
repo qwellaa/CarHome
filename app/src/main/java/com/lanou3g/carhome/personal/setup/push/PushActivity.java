@@ -143,9 +143,22 @@ public class PushActivity extends BaseActivity implements View.OnClickListener {
         timeEnd.setValue(endHour);
 
 
-        popupWindow = new PopupWindow(pushView, ViewGroup.LayoutParams.MATCH_PARENT, 400,true);
+        popupWindow = new PopupWindow(pushView, ViewGroup.LayoutParams.MATCH_PARENT, 400, true);
         //设置PopupWindow的弹出和消失效果
         popupWindow.setAnimationStyle(R.style.push_date_anim);
+
+        // 点击外部取消popupWindow方法
+        popupWindow.setTouchable(true);
+//        popupWindow.setTouchInterceptor(new View.OnTouchListener() {
+//            @Override
+//            public boolean onTouch(View v, MotionEvent event) {
+//                return false;
+//            }
+//        });
+
+        // 必须得设置背景
+        popupWindow.setBackgroundDrawable(getResources().getDrawable(R.drawable.btn_write_bg));
+
         popupWindow.showAtLocation(llPushDate, Gravity.BOTTOM, 0, 0);
 
         btnCancel.setOnClickListener(new View.OnClickListener() {
@@ -188,6 +201,16 @@ public class PushActivity extends BaseActivity implements View.OnClickListener {
         super.onDestroy();
         unregisterReceiver(setPushDateReceiver);
     }
+
+//    @Override
+//    public boolean onKeyDown(int keyCode, KeyEvent event) {
+//        if (keyCode == KeyEvent.KEYCODE_BACK
+//                && event.getRepeatCount() == 0) {
+//
+//            return true;
+//        }
+//        return super.onKeyDown(keyCode, event);
+//    }
 
     private class SetPushDateReceiver extends BroadcastReceiver{
         @Override

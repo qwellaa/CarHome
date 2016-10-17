@@ -42,7 +42,7 @@ public class NewCarFragment extends BaseFragment {
     private ListView lv;
     private TextView tvShow;
     private NewCarAdapter adapter;
-    private String[] indexStr = {"选", "降", "热", "主", "史", "A", "B", "C", "D", "F", "G", "H",
+    private String[] indexStr = {"选", "降", "热", "主", "A", "B", "C", "D", "F", "G", "H",
             "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "W", "X", "Y", "Z"};
     private List<CarNameBean> nameList = null;
     private List<CarNameBean> newNameList = new ArrayList<CarNameBean>();
