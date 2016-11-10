@@ -1,9 +1,16 @@
 apply plugin: 'com.android.application'
 
 android {
+    signingConfigs {
+        config {
+            keyAlias 'lalacar'
+            keyPassword '123123'
+            storeFile file('/Users/dllo/Desktop/CarHome/app/personal.jks')
+            storePassword '123123'
+        }
+    }
     compileSdkVersion 23
     buildToolsVersion "24.0.1"
-
     defaultConfig {
         applicationId "com.lanou3g.carhome"
         minSdkVersion 19
@@ -15,6 +22,17 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.config
+        }
+        lintOptions {
+            checkReleaseBuilds false
+            // Or, if you prefer, you can continue to check for errors in release builds,
+            // but continue the build even when errors are found:
+            abortOnError false
+        }
+        lalacar {
+            signingConfig signingConfigs.config
+            minifyEnabled false
         }
     }
 }

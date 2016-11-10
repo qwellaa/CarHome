@@ -43,6 +43,9 @@ public class SelectFragment extends BaseFragment implements View.OnClickListener
     private LinearLayout btnTfHour;
     private Button btnRedPeople;
     private Button btnConversion;
+    private ArrayList<Button> mButtons;
+    private ArrayList<Integer> mBackGrounds;
+    private ArrayList<Integer> mIntColor;
 
     @Override
     protected int setLayout() {
@@ -120,28 +123,30 @@ public class SelectFragment extends BaseFragment implements View.OnClickListener
         btnRedPeople.setOnClickListener(this);
         llSr.setOnClickListener(this);
         btnTfHour.setOnClickListener(this);
+
+        mButtons = new ArrayList<>();
+        mButtons.add(btnWife);
+        mButtons.add(btnBeauty);
+        mButtons.add(btnHigh);
+        mButtons.add(btnMo);
+        mButtons.add(btnChoseCare);
+        mButtons.add(btnGirlChose);
+        mButtons.add(btnConversion);
+        mButtons.add(btnRedPeople);
+        mBackGrounds = new ArrayList<>();
+        mBackGrounds.add(R.drawable.blue_btn_bg);
+        mBackGrounds.add(R.drawable.orange_btn_bg);
+        mIntColor = new ArrayList<>();
+        mIntColor.add(getResources().getColor(R.color.blue));
+        mIntColor.add(getResources().getColor(R.color.orange));
     }
 
     private void setBtnBackGround() {
-        ArrayList<Button> buttons = new ArrayList<>();
-        buttons.add(btnWife);
-        buttons.add(btnBeauty);
-        buttons.add(btnHigh);
-        buttons.add(btnMo);
-        buttons.add(btnChoseCare);
-        buttons.add(btnGirlChose);
-        buttons.add(btnConversion);
-        buttons.add(btnRedPeople);
-        ArrayList<Integer> backGrounds = new ArrayList<>();
-        backGrounds.add(R.drawable.blue_btn_bg);
-        backGrounds.add(R.drawable.orange_btn_bg);
-        ArrayList<Integer> intColor = new ArrayList<>();
-        intColor.add(getResources().getColor(R.color.blue));
-        intColor.add(getResources().getColor(R.color.orange));
-        for (int i = 0; i < buttons.size(); i++) {
+
+        for (int i = 0; i < mButtons.size(); i++) {
             int color = (int) (Math.random() * 2);
-            buttons.get(i).setBackgroundResource(backGrounds.get(color));
-            buttons.get(i).setTextColor(intColor.get(color));
+            mButtons.get(i).setBackgroundResource(mBackGrounds.get(color));
+            mButtons.get(i).setTextColor(mIntColor.get(color));
         }
     }
 
